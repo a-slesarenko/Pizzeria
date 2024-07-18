@@ -4,12 +4,10 @@
     background-color: var(--header-bg);
     color: var(--header-text);
   
-    .container {
+    .flex__container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 0 auto;
-      width: 90%;
 
       .header__cart {
         background-color: var(--header-button-bg);

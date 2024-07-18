@@ -1,2 +1,9 @@
 // обнуляющий стили файл
 @import url("./css_utilities/resetStyles.scss");
+
+:global{
+    .container {
+        margin: 0 auto;
+        width: 90%;
+    }
+}

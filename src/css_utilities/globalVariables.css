@@ -5,7 +5,7 @@
 	--black-border: #26292d;
 	--white: #fff;
 	--purple: #5c62ec;
-	--btnOrange: #FE5F1E;
+	--orange: #FE5F1E;
 
 	/* У футера сразу определяем в переменной цвет, он меняться не будет */
     /* Footer */
@@ -17,7 +17,7 @@
 	--header-bg: var(--header-bg-light);
 	--header-text: var(--header-text-light);
 	--header-menu-burger: var(--header-menu-burger-light);
-	--header-button-bg: var(--btnOrange);
+	--header-button-bg: var(--orange);
 	--header-button-text: var(--white);
 
     --page-bg: var(--page-bg-light);
