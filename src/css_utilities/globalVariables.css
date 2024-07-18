@@ -1,0 +1,60 @@
+:root {
+	/* Colors */
+	--blackpure: #000;
+	--black: #171718;
+	--black-border: #26292d;
+	--white: #fff;
+	--purple: #5c62ec;
+	--btnOrange: #FE5F1E;
+
+	/* У футера сразу определяем в переменной цвет, он меняться не будет */
+    /* Footer */
+	--footer-bg: var(--black);
+	--footer-text: var(--white);
+
+	/* Здесь создаем переменную (например --header-bg) со ссылкой на переменную по умолчанию (--header-bg-light), а класс dark меняет(--header-bg-light) на (--header-bg-dark) */
+	/* All */
+	--header-bg: var(--header-bg-light);
+	--header-text: var(--header-text-light);
+	--header-menu-burger: var(--header-menu-burger-light);
+	--header-button-bg: var(--btnOrange);
+	--header-button-text: var(--white);
+
+    --page-bg: var(--page-bg-light);
+	--text-color: var(--text-color-light);
+
+    --project-card-bg: var(----project-card-bg-light);
+	--project-card-text: var(----project-card-text-light);
+	--box-shadow: var(--box-shadow-light);
+
+	/* Light mode */
+    --header-bg-light: var(--white);
+	--header-text-light: var(--black);
+	--header-menu-burger-light: var(--black);
+
+    --page-bg-light: var(--white);
+	--text-color-light: var(--black);
+
+    --project-card-bg-light: var(--white);
+	--project-card-text-light: var(--black);
+	--box-shadow-light: 0 0 10px 3px rgba(95, 81, 224, 0.404);
+
+    /* Dark mode */
+    /* --header-bg-dark: var(--black); */
+    --header-bg-dark:  #252526;
+	--header-text-dark: var(--white);
+	--header-menu-burger-dark: var(--white);
+
+    /* --page-bg-dark: var(--black); */
+    --page-bg-dark: #252526;
+	--text-color-dark: var(--white);
+
+    --project-card-bg-dark: var(--accent);
+	--project-card-text-dark: var(--white);
+	--box-shadow-dark: 0 0 10px 3px rgb(131, 131, 131);
+
+
+    /* _________________________________ */
+	--accent: var(--purple);
+    /* --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.658); */
+}
