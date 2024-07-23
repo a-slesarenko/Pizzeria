@@ -1,15 +1,17 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import * as styles from "./App.module.scss";
 import Header from "@/components/header/Header";
-import Content from "./main/Content";
+import Content from "./pages/home/Content";
 import Footer from "./footer/Footer";
+import NotFound from "./pages/notfound/NotFound";
 
 const App = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <Content />
+      <Outlet />
       <Footer />
+      <ScrollRestoration/>
     </div>
   );
 };

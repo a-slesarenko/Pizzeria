@@ -1,26 +1,30 @@
 import * as styles from "./Header.module.scss";
-import Cart from "@/assets/images/svg/cart-icon.svg";
+import { NavLink } from "react-router-dom";
+import Cart from "../../../public/img/bag.svg";
+import Button from "../button/Button";
 
 const Header = () => {
   return (
     <div className={styles.header}>
       <div className="container">
         <div className={styles.flex__container}>
-          <div className={styles.header__logo}>
-            <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
-            <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+          <NavLink to={"/"}>
+            <div className={styles.header__logo}>
+              <img width="150" src="./img/1.png" alt="Pizza logo" />
+              <div className={styles.logoText}>
+                <h1>Andrey's Pizza</h1>
+                <p>самая вкусная пицца написанная на React'е</p>
+              </div>
             </div>
-          </div>
-          <div className={styles.header__cart}>
-            <a href="#" className={styles.button__cart}>
-              <span>520 ₽</span>
-              <div className={styles.button__split}></div>
-              <Cart width={16} height={16} />
-              <span>3</span>
-            </a>
-          </div>
+          </NavLink>
+          <NavLink to={"cart"}>
+            <Button>
+                <span>520 ₽</span>
+                <div className={styles.button__split}></div>
+                <Cart fill="white" width={16} height={16} />
+                <span>3</span>
+            </Button>
+          </NavLink>
         </div>
       </div>
     </div>

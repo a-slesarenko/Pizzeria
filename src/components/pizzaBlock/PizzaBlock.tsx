@@ -1,53 +1,46 @@
+import { Pizzas } from "@/types/pizzasTypes";
 import * as styles from "./PizzaBlock.module.scss";
+import { useState } from "react";
+import Plus from "../../../public/img/plus.svg";
 
-const PizzaBlock = () => {
+interface Props extends Pizzas {}
+
+const PizzaBlock = ({id, imageUrl, title, types, sizes, price, category, rating}: Props) => {
+    const thickness = ["тонкое", "традиционное"];
+    const [activeType, setActiveType] = useState(0);
+    const [activeSize, setActiveSize] = useState(0);
+
     return (
-        <li className={styles.pizza__block}>
-        <img
-            className={styles.pizza__block__image}
-            src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-            alt="Pizza"
-        />
-        <h4 className={styles.pizza__block__title}>Чизбургер-пицца</h4>
-        <div className={styles.pizza__block__selector}>
-            <ul>
-            <li className={styles.active}>тонкое</li>
-            <li>традиционное</li>
-            </ul>
-            <ul>
-            <li className={styles.active}>26 см.</li>
-            <li>30 см.</li>
-            <li>40 см.</li>
-            </ul>
-        </div>
-        <div className={styles.pizza__block__bottom}>
-            <div className={styles.pizza__block__price}>от 395 ₽</div>
-            <div
-            className={
-                styles.button +
-                " " +
-                styles["button--outline"] +
-                " " +
-                styles["button--add"]
-            }
-            >
-            <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
-                fill="white"
+        <li className={styles.block__container}>
+            <div className={styles.pizza__block}>
+                <img
+                    className={styles.image}
+                    src={imageUrl}
+                    alt={title}
                 />
-            </svg>
-            <span>Добавить</span>
-            <i>2</i>
+                <h4 className={styles.title}>{title}</h4>
+                <div className={styles.selector}>
+                    <ul>
+                        {types.map((type) => {
+                            return <li className={activeType === type || types.length === 1 ? styles.active : ""} onClick={() => setActiveType(type)} >{thickness[type]}</li>
+                        })}
+                    </ul>
+                    <ul>
+                        {sizes.map((size, index) => {
+                            return <li className={activeSize === index || sizes.length === 1 ? styles.active : ""} onClick={() => setActiveSize(index)}>{size} см</li>
+                        })}
+                    </ul>
+                </div>
+                <div className={styles.block__bottom}>
+                    <div className={styles.price}>от {price} ₽</div>
+                    <button className={styles.button}>
+                        <Plus className={styles.plus}/>
+                        <span>Добавить</span>
+                        <i>2</i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
     )
 }
 

@@ -1,0 +1,56 @@
+$orange: #fe5f1e;
+$duration: 0.15s;
+
+@mixin noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+.button {
+    display: inline-block;
+    background-color: $orange;
+    border-radius: 30px;
+    padding: 12px 25px;
+    line-height: 23px;
+    min-width: 100px;
+    text-align: center;
+    transition:
+        background-color $duration ease-in-out,
+        border-color $duration ease-in-out;
+    border: 1px solid transparent;
+    box-shadow: 2px 2px 3px rgb(173, 173, 173);
+    @include noselect();
+
+    .wrapper{
+        display: flex;
+        align-items: center;
+        flex: 0 0 100%;
+        column-gap: 8px;
+
+        &,
+        span {
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        i,
+        span {
+            transition: all $duration ease-in-out;
+        }
+    }
+
+    &:hover {
+        background-color: darken($orange, 8%);
+    }
+
+    &:active {
+        background-color: darken($orange, 12%);
+        transform: translateY(1px);
+    }
+}

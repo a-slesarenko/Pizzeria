@@ -1,0 +1,43 @@
+@mixin noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+main {
+    padding: 40px 0;
+    flex: 1 0 auto;
+
+    .content__top {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: 1050px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .content__title {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 50px;
+        margin-top: 60px;
+
+        @media(max-width: 426px) {
+            margin: 30px 0;
+        }
+    }
+
+    .content__items {
+        display: flex;
+        flex-wrap: wrap;
+        // column-gap: 35px;
+        row-gap: 30px;
+    }
+}
