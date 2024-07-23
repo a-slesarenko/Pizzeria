@@ -3,6 +3,10 @@ footer{
     background: linear-gradient(45deg, rgb(45, 8, 0), rgb(184, 77, 54));
     color: antiquewhite;
     font-size: 22px;
+    
+    @media(min-width: 2500px) {
+        font-size: 36px;
+    }
     // background-color: #f1f1f1;
 
     .list{

@@ -26,6 +26,10 @@ $duration: 0.15s;
     box-shadow: 2px 2px 3px rgb(173, 173, 173);
     @include noselect();
 
+    @media(min-width: 2500px) {
+        min-width: 260px;
+      }
+
     .wrapper{
         display: flex;
         align-items: center;
@@ -37,6 +41,10 @@ $duration: 0.15s;
             color: #fff;
             font-weight: 600;
             font-size: 16px;
+
+            @media(min-width: 2500px) {
+                font-size: 34px;
+              }
         }
 
         i,

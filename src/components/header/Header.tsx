@@ -10,7 +10,7 @@ const Header = () => {
         <div className={styles.flex__container}>
           <NavLink to={"/"}>
             <div className={styles.header__logo}>
-              <img width="150" src="./img/1.png" alt="Pizza logo" />
+              <img src="./img/1.png" alt="Pizza logo" />
               <div className={styles.logoText}>
                 <h1>Andrey's Pizza</h1>
                 <p>самая вкусная пицца написанная на React'е</p>
@@ -19,9 +19,9 @@ const Header = () => {
           </NavLink>
           <NavLink to={"cart"}>
             <Button>
-                <span>520 ₽</span>
+                <span>52 000 ₽</span>
                 <div className={styles.button__split}></div>
-                <Cart fill="white" width={16} height={16} />
+                <Cart className={styles.cart}/>
                 <span>3</span>
             </Button>
           </NavLink>

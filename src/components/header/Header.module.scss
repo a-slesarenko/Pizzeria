@@ -24,8 +24,24 @@
     .button__split {
       width: 1px;
       height: 25px;
-      background-color: #ebebeb;
+      background-color: #ffffff;
       margin: 0 3px;
+
+      @media(min-width: 2500px) {
+        width: 2px;
+        height: 60px;
+      }
+    }
+
+    .cart {
+      fill:white;
+      width: 16px;
+      height: 16px;
+
+      @media(min-width: 2500px) {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 
@@ -36,6 +52,11 @@
     img {
       margin-right: 15px;
       border-radius: 50%;
+      width: 150px;
+
+      @media(min-width: 2500px) {
+        width: 400px;
+      }
     }
 
     h1 {
@@ -43,11 +64,18 @@
       letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 800;
+
+      @media(min-width: 2500px) {
+        font-size: 60px;
+      }
     }
 
     p {
       margin-top: 5px;
       color: #7b7b7b;
+      @media(min-width: 2500px) {
+        font-size: 40px;
+      }
     }
 
     .logoText {

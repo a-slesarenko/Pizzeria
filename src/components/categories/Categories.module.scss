@@ -12,6 +12,10 @@
     ul {
         display: flex;
 
+        @media(min-width: 2500px) {
+            font-size: 34px;
+          }
+
         @media(max-width: 1050px) {
             flex-wrap: wrap;
             row-gap: 20px;

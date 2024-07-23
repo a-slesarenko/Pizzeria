@@ -5,7 +5,7 @@ const Footer = () => {
         <footer>
             <div className="container">
                 <div className={styles.list}>
-                    <p>PIZZERIA Andrey's Pizza</p>
+                    <p>Pizzeria Andrey's Pizza</p>
                     <p>© 2024 Al rights reserved</p>
                     <p>Быстрая доставка!</p>
                 </div>
