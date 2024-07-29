@@ -11,14 +11,16 @@ export type Sort = {
 
 export interface FilterState {
   category: number;
+  searchValue: string;
   sort: Sort;
 }
 
 const initialState: FilterState = {
   category: 0,
-  sort:       {
+  searchValue: '',
+  sort: {
     name: "популярности 🡓",
-    sortValue: "-rating"
+    sortValue: "-rating",
   },
 };
 
@@ -32,10 +34,16 @@ export const filterSlice = createSlice({
       setSortValue: create.reducer((state, action: PayloadAction<Sort>) => {
         return { ...state, sort: action.payload };
       }),
+      setSearchValue: create.reducer((state, action: PayloadAction<string>) => {
+        return { ...state, searchValue: action.payload };
+      }),
+      clearSearchValue: create.reducer((state, action: PayloadAction<string>) => {
+        return { ...state, searchValue: action.payload };
+      }),
     }),
 });
 
 // Action creators are generated for each case reducer function
-export const { setCategory, setSortValue } = filterSlice.actions;
+export const { setCategory, setSortValue, setSearchValue, clearSearchValue } = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

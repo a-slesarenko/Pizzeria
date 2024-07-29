@@ -12,15 +12,14 @@ import getUrl from "@/utils/urlConstructor";
 
 const Content = () => {
   const {allPizzas, status} = useSelector((state: RootState) => state.pizzas);
-  const sort = useSelector((state: RootState) => state.filter.sort);
-  const category = useSelector((state: RootState) => state.filter.category);
+  const {sort, category, searchValue } = useSelector((state: RootState) => state.filter);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const url = getUrl({category, sort});
+    const url = getUrl({category, sort, searchValue});
     dispatch(fetchPizzas(url.href));
 
-  }, [category, sort])
+  }, [category, sort, searchValue])
 
   return (
     <main>
