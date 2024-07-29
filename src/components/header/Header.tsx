@@ -1,33 +1,39 @@
 import * as styles from "./Header.module.scss";
 import { NavLink } from "react-router-dom";
-import Cart from "../../../public/img/bag.svg";
+import Cart from "@/assets/images/svg/bag.svg";
 import Button from "../button/Button";
+import Search from "../search/Search";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const Header = () => {
+  const cart = useSelector((state: RootState) => state.cart);
+
   return (
-    <div className={styles.header}>
+    <header>
       <div className="container">
-        <div className={styles.flex__container}>
+        <div className={styles.flex_container}>
           <NavLink to={"/"}>
-            <div className={styles.header__logo}>
+            <div className={styles.logo}>
               <img src="./img/1.png" alt="Pizza logo" />
-              <div className={styles.logoText}>
+              <div className={styles.logo_text}>
                 <h1>Andrey's Pizza</h1>
                 <p>самая вкусная пицца написанная на React'е</p>
               </div>
             </div>
           </NavLink>
+          <Search />
           <NavLink to={"cart"}>
             <Button>
-                <span>52 000 ₽</span>
-                <div className={styles.button__split}></div>
+                <span>{cart.totalPrice}</span>
+                <div className={styles.button_split}></div>
                 <Cart className={styles.cart}/>
-                <span>3</span>
+                <span>{cart.totalPizzas}</span>
             </Button>
           </NavLink>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

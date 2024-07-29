@@ -1,0 +1,67 @@
+$orange: #fe5f1e;
+
+.wrapper {
+    width: 270px;
+    height: 46px;
+
+    @media (min-width: 2500px) {
+        width: 650px;
+        height: 80px;
+    }
+
+    .flex_wrapper {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        width: 17%;
+        height: 100%;
+        padding: 10px;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        border-radius: 25px;
+        transition: all 1s;
+        &:hover {
+            width: 100%;
+            input {
+                display: inline-block;
+            }
+        }
+
+        @media (min-width: 2500px) {
+            column-gap: 6px;
+            border-radius: 45px;
+            padding: 15px;
+            width: 12.31%;
+        }
+
+        input {
+            color: rgb(139, 138, 138);
+            display: none;
+            transition: all 1s;
+
+            @media (min-width: 2500px) {
+                font-size: 45px;
+            }
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: rgb(179, 178, 178);
+            cursor: pointer;
+
+            &:hover {
+                fill: $orange;
+            }
+
+            &:active {
+                transform: translateY(3%);
+                fill: darken($orange, 12%);
+            }
+
+            @media (min-width: 2500px) {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+}

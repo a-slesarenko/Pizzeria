@@ -1,28 +1,67 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as styles from "./Sort.module.scss";
-import Arrow from "../../../public/img/arrow-top.svg";
+import Arrow from "@/assets/images/svg/arrow-top.svg";
+import { RootState, useAppDispatch } from "@/redux/store";
+import { useSelector } from "react-redux";
+import { setSortValue } from "@/redux/features/filter/filterSlice";
 
 const Sort = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectValue, setSelectValue] = useState(0);
-    const sortingListValues = ["популярности", "цене", "алфавиту"];
+    const sortingListValues = [{
+        name: "популярности 🡑",
+        sortValue: "rating"
+      },
+      {
+        name: "популярности 🡓",
+        sortValue: "-rating"
+      },
+      {
+        name: "цене 🡑",
+        sortValue: "calculatedPrice"
+      },
+      {
+        name: "цене 🡓",
+        sortValue: "-calculatedPrice"
+      },
+      {
+        name: "алфавиту 🡑",
+        sortValue: "title"
+      },
+      {
+        name: "алфавиту 🡓",
+        sortValue: "-title"
+      }
+    ];
 
-    const onClickSortHandler = (index: number) => {
-        setSelectValue(index);
-        setIsOpen(false);
-    }
+    const dispatch = useAppDispatch();
+    const sort = useSelector((state: RootState) => state.filter.sort);
+    const sortRef = useRef();
+
+    useEffect(() => {
+      const popUpHandler = (event: Event) => {
+        if(!event.composedPath().includes(sortRef.current)) {
+          setIsOpen(false);
+        }
+      }
+
+      document.body.addEventListener("click", popUpHandler)
+
+      return () => {
+        document.body.removeEventListener("click", popUpHandler);
+      }
+    }, [])
 
     return (
-        <div className={styles.sort}>
+        <div className={styles.sort} ref={sortRef}>
             <div className={styles.sort__label}>
                 <Arrow className={styles.arrow} />
                 <b>Сортировка по:</b>
-                <span onClick={() => setIsOpen((prev) => !prev)}>{sortingListValues[selectValue]}</span>
+                <span onClick={() => setIsOpen((prev) => !prev)}>{sort.name}</span>
             </div>
             {isOpen && <div className={styles.sort__popup}>
                             <ul>
-                                {sortingListValues.map((item, index) => {
-                                    return <li key={item} onClick={() => onClickSortHandler(index)} className={selectValue === index ? styles.active : ""} >{item}</li>
+                                {sortingListValues.map((item) => {
+                                    return <li key={item.name} onClick={() => dispatch(setSortValue(item))} className={sort.name === item.name ? styles.active : ""}> {item.name} </li>
                                 })}
                             </ul>
                         </div>}

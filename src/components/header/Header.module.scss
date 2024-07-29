@@ -1,6 +1,6 @@
-.header {
+header {
   border-bottom: 1px solid #f6f6f6;
-  padding: 40px 0;
+  padding: 25px 0;
   background-color: var(--header-bg);
   color: var(--header-text);
 
@@ -9,19 +9,66 @@
     top: 0px;
     left: 0px;
     z-index: 50;
-}
+  }
 
-  .flex__container {
+  .flex_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    @media(max-width: 500px) {
-      flex-wrap: wrap;
-      justify-content: center;
+    @media(min-width: 2500px) {
+      justify-content: space-between;
     }
 
-    .button__split {
+    @media(max-width: 1000px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
+      column-gap: 15px;
+    }
+    
+    .logo {
+      display: flex;
+      color: var(--black);
+  
+      img {
+        margin-right: 15px;
+        border-radius: 50%;
+        width: 150px;
+  
+        @media(min-width: 2500px) {
+          width: 400px;
+        }
+      }
+  
+      h1 {
+        font-size: 24px;
+        letter-spacing: 1%;
+        text-transform: uppercase;
+        font-weight: 800;
+  
+        @media(min-width: 2500px) {
+          font-size: 50px;
+        }
+      }
+  
+      p {
+        margin-top: 5px;
+        color: #7b7b7b;
+        @media(min-width: 2500px) {
+          font-size: 40px;
+        }
+      }
+  
+      .logo_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 500px;
+      }
+    }
+
+    .button_split {
       width: 1px;
       height: 25px;
       background-color: #ffffff;
@@ -42,46 +89,6 @@
         width: 40px;
         height: 40px;
       }
-    }
-  }
-
-  &__logo {
-    display: flex;
-    color: var(--black);
-
-    img {
-      margin-right: 15px;
-      border-radius: 50%;
-      width: 150px;
-
-      @media(min-width: 2500px) {
-        width: 400px;
-      }
-    }
-
-    h1 {
-      font-size: 24px;
-      letter-spacing: 1%;
-      text-transform: uppercase;
-      font-weight: 800;
-
-      @media(min-width: 2500px) {
-        font-size: 60px;
-      }
-    }
-
-    p {
-      margin-top: 5px;
-      color: #7b7b7b;
-      @media(min-width: 2500px) {
-        font-size: 40px;
-      }
-    }
-
-    .logoText {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 }

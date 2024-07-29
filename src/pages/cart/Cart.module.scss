@@ -2,10 +2,7 @@ $orange: #fe5f1e;
 $grey: #a7a7a7;
 $duration: 0.15s;
 
-main {
-    padding: 40px 0;
-    flex: 1 0 auto;
-
+main{
     .cart__container {
         margin: 0 auto;
         max-width: 830px;
@@ -25,6 +22,8 @@ main {
 
             .trash {
                 fill: var(--white);
+                width: 25px;
+                height: 25px;
 
                 path {
                     stroke: var(--orange);

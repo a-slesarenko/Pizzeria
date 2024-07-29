@@ -1,11 +1,13 @@
 import ReactDOM from "react-dom/client";
 import App from "@/components/App";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import {store} from "@/redux/store";
 import "./index.scss";
 import "./css_utilities/globalVariables.css";
-import Content from "./components/pages/home/Content";
-import Cart from "./components/pages/cart/Cart";
-import NotFound from "./components/pages/notfound/NotFound";
+import Content from "./pages/home/Content";
+import Cart from "./pages/cart/Cart";
+import NotFound from "./pages/notfound/NotFound";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,4 +22,8 @@ const router = createBrowserRouter(
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 
-root.render(<RouterProvider router={router} />);
+root.render(
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
+);

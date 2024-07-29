@@ -7,8 +7,8 @@ const NotFound = () => {
             <div className="container">
                 <div className={styles.flex_container}>
                     <div className={styles.text}>
-                        <h1 className={styles.title}>NOT FOUND...</h1>
-                        <p>You are here because the requested page does not exist or has been moved to a different address.</p>
+                        <h1 className={styles.title}>Не удалось получить пиццы...</h1>
+                        <p>Возможно удаленный сервер не отвечает или адрес к которому вы патаетесь обратиться не существует либо изменился. Проверьте адрес или попробуйте позже.</p>
                     </div>
                     <img src={john} alt="Not found John Travolta" />
                 </div>

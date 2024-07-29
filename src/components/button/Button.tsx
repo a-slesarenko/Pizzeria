@@ -4,13 +4,15 @@ import clsx from "clsx";
 
 interface BtnProps {
     children: ReactNode,
+    onClick?: any,
 }
 
-const Button = ({children}: BtnProps) => {
+const Button = ({children, onClick}: BtnProps) => {
 
     return (
             <button
                 className={styles.button}
+                onClick={onClick}
                 >
                     <div className={styles.wrapper}>
                     {children}

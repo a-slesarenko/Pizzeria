@@ -1,0 +1,34 @@
+main {
+    letter-spacing: 0.05rem;
+
+    .empty_container {
+        margin: 0 auto;
+        max-width: 830px;
+
+        .flex_wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2{
+                font-size: 32px;
+            }
+
+            p{
+                font-size: 18px;
+                color: #777777;
+            }
+
+            img{
+                width: 360px;
+                border-radius: 50%;
+                box-shadow: 0px 10px 15px 10px #868686;
+                margin: 20px 0 35px 0;
+            }
+
+            .back_btn{
+                margin: 15px 0;
+            }
+        }
+    }
+}
