@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "@/components/App";
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import {createHashRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import {store} from "@/redux/store";
 import "./index.scss";
@@ -9,7 +9,7 @@ import Content from "./pages/home/Content";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
     createRoutesFromElements(
         <Route path="/" element={<App />}>
           <Route index element={<Content />} />

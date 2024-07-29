@@ -36,8 +36,8 @@ export function buildPlugins(options: BuildOptions): Configuration["plugins"] {
       new CopyPlugin({
         patterns: [
           {
-            from: path.resolve(options.paths.public, "translate"),
-            to: path.resolve(options.paths.output, "translate"),
+            from: path.resolve(options.paths.public, "img"),
+            to: path.resolve(options.paths.output, "img"),
           },
           // Добавлять еще:
           // { from: "other", to: "public" },
