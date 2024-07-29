@@ -1,5 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { asyncThunkCreator, buildCreateSlice, PayloadAction } from "@reduxjs/toolkit";
+
+const createSlice = buildCreateSlice({
+  creators: { asyncThunk: asyncThunkCreator },
+})
 
 export type Sort = {
   name: string;
@@ -22,14 +25,14 @@ const initialState: FilterState = {
 export const filterSlice = createSlice({
   name: "filter",
   initialState,
-  reducers: {
-    setCategory: (state, action) => {
-      return { ...state, category: action.payload };
-    },
-    setSortValue: (state, action) => {
-      return { ...state, sort: action.payload };
-    },
-  },
+  reducers: (create) => ({
+      setCategory: create.reducer((state, action: PayloadAction<number>) => {
+        return { ...state, category: action.payload };
+      }),
+      setSortValue: create.reducer((state, action: PayloadAction<Sort>) => {
+        return { ...state, sort: action.payload };
+      }),
+    }),
 });
 
 // Action creators are generated for each case reducer function

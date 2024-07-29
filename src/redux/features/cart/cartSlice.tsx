@@ -1,6 +1,10 @@
 import { CartPizza } from "@/types/pizzasTypes";
-import { createSlice } from "@reduxjs/toolkit";
+import { asyncThunkCreator, buildCreateSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+
+const createSlice = buildCreateSlice({
+  creators: { asyncThunk: asyncThunkCreator },
+})
 
 export interface CartState {
   totalPrice: number;
@@ -17,8 +21,8 @@ const initialState: CartState = {
 export const cartSlice = createSlice({
   name: "Cart",
   initialState,
-  reducers: {
-    addPizza: (state, action: PayloadAction<CartPizza>) => {
+  reducers: (create) => ({
+    addPizza: create.reducer((state, action: PayloadAction<CartPizza>) => {
       const addedPizza = state.cartPizzas.find(
         (pizza) => (pizza.id === action.payload.id && pizza.calculatedPrice === action.payload.calculatedPrice)
       );
@@ -35,24 +39,24 @@ export const cartSlice = createSlice({
       state.totalPizzas = state.cartPizzas.reduce((amount, pizza) => {
         return pizza.count + amount;
       }, 0);
-    },
-    decrementPizza: (state, action: PayloadAction<CartPizza>) => {
-        const addedPizza = state.cartPizzas.find(
-          (pizza) => (pizza.id === action.payload.id && pizza.calculatedPrice === action.payload.calculatedPrice && pizza.size === action.payload.size)
-        );
-        if (addedPizza.count !== 1) {
-          addedPizza.count--;
-        }
-  
-        state.totalPrice = state.cartPizzas.reduce((sum, pizza) => {
-          return pizza.calculatedPrice * pizza.count + sum;
-        }, 0);
-  
-        state.totalPizzas = state.cartPizzas.reduce((amount, pizza) => {
-          return pizza.count + amount;
-        }, 0);
-      },
-    removePizza: (state, action) => {
+    }),
+    decrementPizza: create.reducer((state, action: PayloadAction<CartPizza>) => {
+      const addedPizza = state.cartPizzas.find(
+        (pizza) => (pizza.id === action.payload.id && pizza.calculatedPrice === action.payload.calculatedPrice && pizza.size === action.payload.size)
+      );
+      if (addedPizza.count !== 1) {
+        addedPizza.count--;
+      }
+
+      state.totalPrice = state.cartPizzas.reduce((sum, pizza) => {
+        return pizza.calculatedPrice * pizza.count + sum;
+      }, 0);
+
+      state.totalPizzas = state.cartPizzas.reduce((amount, pizza) => {
+        return pizza.count + amount;
+      }, 0);
+    }),
+    removePizza: create.reducer((state, action: PayloadAction<CartPizza>) => {
       state.cartPizzas = state.cartPizzas.filter((pizza) => {
         return (pizza.calculatedPrice !== action.payload.calculatedPrice)
       });
@@ -70,13 +74,13 @@ export const cartSlice = createSlice({
       state.totalPizzas = state.cartPizzas.reduce((amount, pizza) => {
         return pizza.count + amount;
       }, 0);
-    },
-    clearPizza: (state) => {
+    }),
+    clearPizza: create.reducer((state) => {
       state.cartPizzas = [];
       state.totalPizzas = 0;
       state.totalPrice = 0;
-    },
-  },
+    }),
+  }),
 });
 
 // Action creators are generated for each case reducer function
