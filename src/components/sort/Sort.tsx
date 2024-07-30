@@ -8,27 +8,27 @@ import { setSortValue } from "@/redux/features/filter/filterSlice";
 const Sort = () => {
     const [isOpen, setIsOpen] = useState(false);
     const sortingListValues = [{
-        name: "популярности 🡑",
+        name: "популярности (по возрастанию)",
         sortValue: "rating"
       },
       {
-        name: "популярности 🡓",
+        name: "популярности (по убыванию)",
         sortValue: "-rating"
       },
       {
-        name: "цене 🡑",
+        name: "цене (по возрастанию)",
         sortValue: "calculatedPrice"
       },
       {
-        name: "цене 🡓",
+        name: "цене (по убыванию)",
         sortValue: "-calculatedPrice"
       },
       {
-        name: "алфавиту 🡑",
+        name: "алфавиту (по возрастанию)",
         sortValue: "title"
       },
       {
-        name: "алфавиту 🡓",
+        name: "алфавиту (по убыванию)",
         sortValue: "-title"
       }
     ];

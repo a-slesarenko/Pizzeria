@@ -3,8 +3,6 @@ import john from "@/assets/images/john.jpg";
 
 const NotFound = () => {
     return (
-        <main>
-            <div className="container">
                 <div className={styles.flex_container}>
                     <div className={styles.text}>
                         <h1 className={styles.title}>Не удалось получить пиццы... Проверьте что вы ввели в поиске, таких пицц в ассортименте нет</h1>
@@ -12,8 +10,6 @@ const NotFound = () => {
                     </div>
                     <img src={john} alt="Not found John Travolta" />
                 </div>
-            </div>
-        </main>
     )
 }
 

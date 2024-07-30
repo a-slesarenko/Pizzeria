@@ -28,7 +28,12 @@ $duration: 0.15s;
 
     @media(min-width: 2500px) {
         min-width: 260px;
-      }
+    }
+
+    @media(max-width: 767px) {
+        padding: 8px 12px;
+        line-height: 16px;
+    }
 
     .wrapper{
         display: flex;
@@ -44,7 +49,11 @@ $duration: 0.15s;
 
             @media(min-width: 2500px) {
                 font-size: 34px;
-              }
+            }
+
+            @media(max-width: 767px) {
+                font-size: 12px;
+            }
         }
 
         i,

@@ -19,7 +19,7 @@ const initialState: FilterState = {
   category: 0,
   searchValue: '',
   sort: {
-    name: "популярности 🡓",
+    name: "популярности (по убыванию)",
     sortValue: "-rating",
   },
 };

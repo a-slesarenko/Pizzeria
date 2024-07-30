@@ -11,6 +11,13 @@ main{
             display: flex;
             justify-content: space-between;
 
+            @media(max-width: 620px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                row-gap: 20px;
+            }
+
             h2 {
                 font-size: 32px;
                 font-weight: 600;
@@ -19,11 +26,16 @@ main{
                     margin-right: 10px;
                 }
             }
-
+            
             .trash {
                 fill: var(--white);
                 width: 25px;
                 height: 25px;
+
+                @media(max-width: 620px) {
+                    width: 16px;
+                    height: 16px;
+                }
 
                 path {
                     stroke: var(--orange);
@@ -41,17 +53,37 @@ main{
 
             .item {
                 display: flex;
-                align-items: center;
+                align-items:center;
+                justify-content: center;
                 width: 100%;
+
+
+                @media(max-width: 620px) {
+                    padding-bottom: 10px;
+                    column-gap: 10px;
+                    row-gap: 15px;
+                    flex-wrap: wrap;
+                    justify-content:space-around;
+                    border-bottom: 1px solid rgb(235, 235, 235);
+                }
 
                 .img {
                     flex: 0 1 10%;
                     margin-right: 15px;
 
+                    @media(max-width: 620px) {
+                        order: 1;
+                    }
+
                     img {
                         border-radius: 50%;
                         min-width: 80px;
                         max-width: 100%;
+                        box-shadow: 0 0 10px 4px rgb(0, 0, 0);
+
+                        @media(max-width: 620px) {
+                            order: 1;
+                        }
                     }
                 }
 
@@ -60,6 +92,10 @@ main{
                     display: flex;
                     justify-content: center;
                     flex-direction: column;
+
+                    @media(max-width: 620px) {
+                        order: 2;
+                    }
 
                     h3 {
                         font-size: 22px;
@@ -77,6 +113,11 @@ main{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    column-gap: 10px;
+
+                    @media(max-width: 620px) {
+                        order: 5;
+                    }
 
                     span {
                         font-size: 22px;
@@ -133,6 +174,10 @@ main{
                     justify-content: center;
                     font-size: 22px;
                     font-weight: 700;
+
+                    @media(max-width: 620px) {
+                        order: 4;
+                    }
                 }
 
                 .remove__button {
@@ -147,6 +192,10 @@ main{
                     height: 32px;
                     padding: 0;
                     transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+
+                    @media(max-width: 620px) {
+                        order: 3;
+                    }
 
                     .remove{
                         width: 10px;
@@ -167,33 +216,27 @@ main{
                         transform: translateY(1px);
                     }
                 }
-
-                // .remove__button {
-                //     flex: 0 1 4%;
-                //     background-color: transparent;
-                //     display: flex;
-                //     align-items: center;
-                //     justify-content: flex-end;
-                //     min-width: 32px;
-                //     height: 32px;
-
-                //     .remove {
-                //         fill: $grey;
-                //         width: 100%;
-                //         height: 100%;
-                //     }
-                // }
             }
         }
 
         .cart__bottom {
             padding: 50px 0;
 
+            @media(max-width: 620px) {
+                padding: 10px 0;
+            }
+
             .details {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 font-size: 22px;
+
+                @media(max-width: 620px) {
+                    flex-direction: column;
+                    row-gap: 15px;
+                }
+
                 b {
                     color: $orange;
                 }

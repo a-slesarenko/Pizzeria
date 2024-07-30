@@ -45,7 +45,9 @@ header {
         font-size: 24px;
         letter-spacing: 1%;
         text-transform: uppercase;
+        font-family: "Permanent Marker", cursive;
         font-weight: 800;
+        font-style: normal;
   
         @media(min-width: 2500px) {
           font-size: 50px;
@@ -55,6 +57,9 @@ header {
       p {
         margin-top: 5px;
         color: #7b7b7b;
+        font-family: "Permanent Marker", cursive;
+        font-weight: 800;
+        font-style: normal;
         @media(min-width: 2500px) {
           font-size: 40px;
         }

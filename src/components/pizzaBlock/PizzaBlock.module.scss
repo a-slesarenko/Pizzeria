@@ -47,7 +47,7 @@ $duration: 0.15s;
         .image {
             width: clamp(11.25rem, 9rem + 11.25vw, 22.5rem);
             margin-bottom: 10px;
-            box-shadow: 10px 10px 10px 0px rgba(34, 60, 80, 0.877);
+            box-shadow: 0 0 15px 8px rgb(0, 0, 0);
             border-radius: 50%;
 
             @media(min-width: 2500px) {
@@ -77,6 +77,7 @@ $duration: 0.15s;
             border-radius: 10px;
             flex-direction: column;
             padding: 6px;
+            box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.11);
             @media(min-width: 2500px) {
                 padding: 12px;
             }
@@ -132,7 +133,9 @@ $duration: 0.15s;
         }
 
         .price {
-            font-weight: bold;
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
             font-size: 22px;
             line-height: 27px;
             letter-spacing: 0.015em;
