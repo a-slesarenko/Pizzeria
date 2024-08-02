@@ -37,7 +37,7 @@ const Search = () => {
                     <SearchIcon className={styles.icon} />
                 </div>
                 <div className={styles.flex_center}>
-                    <input ref={inputRef} type="text" placeholder="Найти пиццу" value={localSearchVal} onChange={(event) => changeInputValue(event)} />
+                    <input ref={inputRef} type="text" placeholder="Найти пиццу" value={localSearchVal} onChange={changeInputValue} />
                 </div>
                 <div className={styles.flex_right}>
                     {searchValue && <Remove className={styles.remove} onMouseDown={Clear} />}

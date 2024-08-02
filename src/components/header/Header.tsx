@@ -2,7 +2,6 @@ import * as styles from "./Header.module.scss";
 import { NavLink } from "react-router-dom";
 import Cart from "@/assets/images/svg/bag.svg";
 import Button from "../button/Button";
-import Search from "../search/Search";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
@@ -22,7 +21,6 @@ const Header = () => {
               </div>
             </div>
           </NavLink>
-          <Search />
           <NavLink to={"cart"}>
             <Button>
                 <span>{cart.totalPrice}</span>

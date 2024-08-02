@@ -6,7 +6,7 @@ interface getUrlProps {
   searchValue?: string;
   id?: string | number;
 }
-
+// axios query params
 const getUrl = ({ category, sort, searchValue, id }: getUrlProps) => {
   let url = new URL(`https://669a09469ba098ed61fe129b.mockapi.io/pizzas`);
 

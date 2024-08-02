@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { addPizza } from "@/redux/features/cart/cartSlice";
 import axios from "axios";
 import getUrl from "@/utils/urlConstructor";
+import { thickness } from "@/helpers/ThisProjectLocalData";
 
 interface Props extends Pizza {}
 
@@ -17,13 +18,8 @@ const PizzaBlock = ({
   types,
   sizes,
   basePrice,
-  category,
-  rating,
   calculatedPrice,
 }: Props) => {
-
-  const thickness = ["тонкое", "фирменное"];
-  const [currentPrice, setCurrentPrice] = useState(calculatedPrice);
 
   const [activeType, setActiveType] = useState(() => {
     const obj = JSON.parse(sessionStorage.getItem(`type:${id}`));
@@ -40,6 +36,8 @@ const PizzaBlock = ({
     }
     return 26;
   });
+
+  const [currentPrice, setCurrentPrice] = useState(calculatedPrice);
 
   const setTypeInSession = (type: number) => {
     setActiveType(type);
@@ -69,7 +67,7 @@ const PizzaBlock = ({
     };
     dispatch(addPizza(pizza));
   };
-
+// Вынести в utils
   useEffect(() => {
     if (activeType === 0 && activeSize === 26) {
       setCurrentPrice(basePrice);
@@ -88,8 +86,8 @@ const PizzaBlock = ({
 
   useEffect(() => {
     if (currentPrice !== calculatedPrice) {
-        const url = getUrl({id});
-        axios.patch(url.href, { calculatedPrice: currentPrice })
+      const url = getUrl({id});
+      axios.patch(url.href, { calculatedPrice: currentPrice })
     }
   }, [currentPrice]);
 
@@ -128,7 +126,7 @@ const PizzaBlock = ({
         </div>
         <div className={styles.block__bottom}>
           <div className={styles.price}>
-            от {currentPrice === basePrice ? calculatedPrice : currentPrice} ₽
+            от {currentPrice} ₽
           </div>
           <button className={styles.button} onClick={addPizzaOnClick}>
             <Plus className={styles.plus} />

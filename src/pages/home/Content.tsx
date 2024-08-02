@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Categories from "../../components/categories/Categories";
 import PizzaBlock from "../../components/pizzaBlock/PizzaBlock";
 import Sort from "../../components/sort/Sort";
@@ -9,11 +9,13 @@ import { useSelector } from "react-redux";
 import { fetchPizzas } from "@/redux/features/pizzas/pizzasSlice";
 import NotFound from "../notfound/NotFound";
 import getUrl from "@/utils/urlConstructor";
+import Search from "@/components/search/Search";
 
 const Content = () => {
   const {allPizzas, status} = useSelector((state: RootState) => state.pizzas);
   const {sort, category, searchValue } = useSelector((state: RootState) => state.filter);
   const dispatch = useAppDispatch();
+
 
   useEffect(() => {
     const url = getUrl({category, sort, searchValue});
@@ -24,9 +26,14 @@ const Content = () => {
   return (
     <main>
       <div className="container">
-        <div className={styles.content__top}>
-          <Categories />
-          <Sort />
+        <div className={styles.content_top}>
+          <div>
+            <Search />
+          </div>
+          <div className={styles.content_filter}>
+            <Categories />
+            <Sort />
+          </div>
         </div>
         <h2 className={styles.content__title}>Все пиццы</h2>
         <ul className={styles.content__items}>

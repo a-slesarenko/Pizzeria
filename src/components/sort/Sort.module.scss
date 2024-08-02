@@ -5,13 +5,16 @@
         font-size: 34px;
     }
 
-    @media(max-width: 1050px) {
-        margin-top: 30px;
-    }
-
     &__label {
         display: flex;
         align-items: center;
+        cursor: pointer;
+
+        @media(max-width: 767px) {
+            span{
+                display: none;
+            }
+        }
 
         .arrow {
             margin-right: 8px;
@@ -32,7 +35,6 @@
         span {
             color: var(--orange);
             text-decoration: underline;
-            cursor: pointer;
         }
     }
 

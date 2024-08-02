@@ -1,4 +1,3 @@
-// import { createSlice } from "@/redux/store";
 import { Pizza } from "@/types/pizzasTypes";
 import { asyncThunkCreator, buildCreateSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -9,11 +8,13 @@ const createSlice = buildCreateSlice({
 
 export interface PizzasState {
   allPizzas: Pizza[];
+  returnToServer: Pizza[];
   status: "loading" | "success" | "error";
 }
 
 const initialState: PizzasState = {
   allPizzas: [],
+  returnToServer: [],
   status: "loading",
 };
 
@@ -34,6 +35,9 @@ export const pizzasSlice = createSlice({
      },
      fulfilled: (state, action) => {
         state.allPizzas = action.payload;
+        state.returnToServer = action.payload.map((pizza) => {
+          return {...pizza, calculatedPrice: pizza.basePrice}
+        });
         state.status = "success";
      },
      rejected: (state) => {
@@ -44,7 +48,6 @@ export const pizzasSlice = createSlice({
   }),
 });
 
-// Action creators are generated for each case reducer function
 export const { setPizzas, fetchPizzas } = pizzasSlice.actions;
 
 export const pizzasReducer = pizzasSlice.reducer;
