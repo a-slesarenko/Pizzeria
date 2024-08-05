@@ -1,0 +1,85 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 100;
+
+    .window {
+        width: min(270px, 90%);
+        height: min(140px, 70%);
+        margin: 0 auto;
+        padding: 15px;
+        border-radius: 30px;
+        background: linear-gradient(45deg, rgb(45, 8, 0), rgb(184, 77, 54));
+        color: antiquewhite;
+        box-shadow: 1px 1px 25px 5px rgb(45, 8, 0);
+        position: relative;
+        top: 10%;
+        z-index: 101;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            h2 {
+                font-size: 19px;
+            }
+        }
+
+        .text {
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+            column-gap: 30px;
+
+            button {
+                display: inline-block;
+                background-color: transparent;
+                padding: 5px 12px;
+                border-radius: 15px;
+                color: white;
+                box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.952);
+                letter-spacing: 0.15px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: normal;
+                position: relative;
+                overflow: hidden;
+
+                &:active {
+                    transform: scale(0.9);
+                    background-color: darken(rgb(83, 16, 1), 1%);
+                }
+                &:hover {
+                    box-shadow: 1px 1px 15px 5px rgb(255, 255, 255);
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 0;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(120deg, transparent, rgb(238, 239, 252), transparent);
+                    transition: all 650ms;
+                    pointer-events: none;
+                }
+                &:hover:before {
+                    left: 100%;
+                }
+            }
+        }
+    }
+}

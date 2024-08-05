@@ -11,10 +11,21 @@ import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { addPizza, clearPizza, decrementPizza, removePizza } from "@/redux/features/cart/cartSlice";
 import CartEmpty from "../empty/CartEmpty";
+import ConfirmModal from "@/components/confirmModal/ConfirmModal";
+import { useState } from "react";
 
 const Cart = () => {
     const dispatch = useAppDispatch();
     const cart = useSelector((state: RootState) => state.cart);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const clearCart = (desicion: string) => {
+        if(desicion === "yes") {
+            dispatch(clearPizza());
+        } else if(desicion === 'no') {
+            setIsOpen(false);
+        }
+    }
 
     if(cart.cartPizzas.length === 0) {
         return (
@@ -30,10 +41,11 @@ const Cart = () => {
                     <CartIcon className={styles.cart} width={30} height={30} />
                         Корзина
                     </h2>
-                    <Button onClick={() => dispatch(clearPizza())}>
+                    <Button onClick={() => setIsOpen(true)}>
                         <Trash className={styles.trash} />
                         <span>Очистить корзину</span>
                     </Button>
+                    {isOpen && <ConfirmModal onClickHandler={clearCart} />}
                 </div>
                 <ul className={styles.items}>
                     {cart.cartPizzas.map((pizza) => {
