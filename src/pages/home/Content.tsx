@@ -8,7 +8,6 @@ import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { fetchPizzas } from "@/redux/features/pizzas/pizzasSlice";
 import NotFound from "../notfound/NotFound";
-import getUrl from "@/utils/urlConstructor";
 import Search from "@/components/search/Search";
 
 const Content = () => {
@@ -16,11 +15,8 @@ const Content = () => {
   const {sort, category, searchValue } = useSelector((state: RootState) => state.filter);
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
-    const url = getUrl({category, sort, searchValue});
-    dispatch(fetchPizzas(url.href));
-
+    dispatch(fetchPizzas({category, sort, searchValue}));
   }, [category, sort, searchValue])
 
   return (

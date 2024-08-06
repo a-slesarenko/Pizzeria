@@ -13,8 +13,7 @@ const App = () => {
 
 useEffect(() => {
   return () => {
-    const url = getUrl({});
-    axios.put(url.href, returnPizzas)
+    axios.put("https://669a09469ba098ed61fe129b.mockapi.io/pizzas", returnPizzas)
   }
 }, []);
 

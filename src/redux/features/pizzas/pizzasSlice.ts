@@ -1,6 +1,14 @@
 import { Pizza } from "@/types/pizzasTypes";
 import { asyncThunkCreator, buildCreateSlice, type PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Sort } from "../filter/filterSlice";
+import getFetchParams from "@/utils/urlConstructor";
+
+export interface FetchPizzasArgs {
+  category: number;
+  sort: Sort;
+  searchValue: string;
+}
 
 const createSlice = buildCreateSlice({
     creators: { asyncThunk: asyncThunkCreator },
@@ -25,8 +33,11 @@ export const pizzasSlice = createSlice({
     setPizzas: create.reducer((state, action: PayloadAction<Pizza[]>) => {
         state.allPizzas = action.payload
     }),
-    fetchPizzas: create.asyncThunk<Pizza[], string>(async (href) => {
-    const {data} = await axios.get <Pizza[]> (href);
+    fetchPizzas: create.asyncThunk<Pizza[], FetchPizzasArgs>(async ({category, sort, searchValue}) => {
+      const fetchParams = getFetchParams({category, sort, searchValue});
+      const {data} = await axios.get <Pizza[]> ("https://669a09469ba098ed61fe129b.mockapi.io/pizzas", {
+      params: fetchParams
+    });
     return data;
 },{
     pending: (state) => {

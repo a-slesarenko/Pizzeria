@@ -6,8 +6,8 @@ import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { addPizza } from "@/redux/features/cart/cartSlice";
 import axios from "axios";
-import getUrl from "@/utils/urlConstructor";
 import { thickness } from "@/helpers/ThisProjectLocalData";
+import calcPrice from "@/utils/calcPrice";
 
 interface Props extends Pizza {}
 
@@ -67,27 +67,14 @@ const PizzaBlock = ({
     };
     dispatch(addPizza(pizza));
   };
-// Вынести в utils
+
   useEffect(() => {
-    if (activeType === 0 && activeSize === 26) {
-      setCurrentPrice(basePrice);
-    } else if (activeType === 0 && activeSize === 30) {
-      setCurrentPrice(Math.ceil(basePrice * 1.15));
-    } else if (activeType === 0 && activeSize === 40) {
-      setCurrentPrice(Math.ceil(basePrice * 1.5));
-    } else if (activeType === 1 && activeSize === 26) {
-      setCurrentPrice(Math.ceil(basePrice * 1.1));
-    } else if (activeType === 1 && activeSize === 30) {
-      setCurrentPrice(Math.ceil(basePrice * 1.2));
-    } else if (activeType === 1 && activeSize === 40) {
-      setCurrentPrice(Math.ceil(basePrice * 1.55));
-    }
+      setCurrentPrice(calcPrice(activeType, activeSize, basePrice));
   }, [activeType, activeSize]);
 
   useEffect(() => {
     if (currentPrice !== calculatedPrice) {
-      const url = getUrl({id});
-      axios.patch(url.href, { calculatedPrice: currentPrice })
+      axios.patch(`https://669a09469ba098ed61fe129b.mockapi.io/pizzas/${id}`, { calculatedPrice: currentPrice })
     }
   }, [currentPrice]);
 
