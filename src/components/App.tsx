@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import axios from "axios";
-import getUrl from "@/utils/urlConstructor";
 
 const App = () => {
   const returnPizzas = useSelector((state: RootState) => state.pizzas.returnToServer);

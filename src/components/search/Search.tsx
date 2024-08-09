@@ -11,7 +11,7 @@ const Search = () => {
     const [localSearchVal, setLocalSearchVal] = useState('');
     const {searchValue } = useSelector((state:RootState ) => state.filter);
     const dispatch = useAppDispatch();
-    const inputRef = useRef <HTMLInputElement>();
+    const inputRef = useRef <HTMLInputElement>(null);
 
     const Clear = () => {
         dispatch(setSearchValue(''));
@@ -19,13 +19,14 @@ const Search = () => {
         inputRef.current.focus();
     }
 
+
     const updateSearch = useCallback(
         debounce((string: string) => {
             dispatch(setSearchValue(string));
         }, 1000),
     [])
 
-    const changeInputValue = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const changeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLocalSearchVal(event.target.value);
         updateSearch(event.target.value);
     }
@@ -45,7 +46,6 @@ const Search = () => {
             </div>
         </div>
     )
-        
 }
 
 export default Search

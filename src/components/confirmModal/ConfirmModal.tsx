@@ -1,7 +1,7 @@
 import * as styles from "./ConfirmModal.module.scss";
 
 interface ModalProps {
-    onClickHandler:  (desicion: string) => void,
+    onClickHandler:  (arg: string) => void,
 }
 
 const ConfirmModal = ({onClickHandler}: ModalProps) => {

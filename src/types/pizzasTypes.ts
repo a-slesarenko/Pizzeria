@@ -1,5 +1,5 @@
 type Shape = number[];
-type Sizes = number[];;
+type Sizes = number[];
 
 export interface Pizza {
     id: string,

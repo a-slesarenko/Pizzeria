@@ -43,7 +43,6 @@ export const filterSlice = createSlice({
     }),
 });
 
-// Action creators are generated for each case reducer function
 export const { setCategory, setSortValue, setSearchValue, clearSearchValue } = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

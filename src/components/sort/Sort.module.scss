@@ -1,5 +1,6 @@
 .sort {
     position: relative;
+    z-index: 50;
 
     @media(min-width: 2500px) {
         font-size: 34px;

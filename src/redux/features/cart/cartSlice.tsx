@@ -1,10 +1,6 @@
-import { CartPizza } from "@/types/pizzasTypes";
+import { CartPizza } from "@/types";
 import { asyncThunkCreator, buildCreateSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-
-const createSlice = buildCreateSlice({
-  creators: { asyncThunk: asyncThunkCreator },
-})
 
 export interface CartState {
   totalPrice: number;
@@ -12,11 +8,22 @@ export interface CartState {
   totalPizzas: number;
 }
 
-const initialState: CartState = {
-  totalPrice: 0,
-  cartPizzas: [],
-  totalPizzas: 0,
-};
+const getCart = (): CartState => {
+  const cartByDefault: CartState = {
+    totalPrice: 0,
+    cartPizzas: [],
+    totalPizzas: 0,
+  }
+  const savedCart: CartState = JSON.parse(localStorage.getItem("cart"));
+  return savedCart ?? cartByDefault;
+}
+
+const initialState: CartState = getCart();
+
+const createSlice = buildCreateSlice({
+  creators: { asyncThunk: asyncThunkCreator },
+})
+
 
 export const cartSlice = createSlice({
   name: "Cart",
@@ -28,7 +35,7 @@ export const cartSlice = createSlice({
       );
       if (addedPizza) {
         addedPizza.count++;
-      } else {
+      } else if(addedPizza === undefined) {
         state.cartPizzas.push({ ...action.payload, count: 1 });
       }
 
@@ -58,13 +65,14 @@ export const cartSlice = createSlice({
     }),
     removePizza: create.reducer((state, action: PayloadAction<CartPizza>) => {
       state.cartPizzas = state.cartPizzas.filter((pizza) => {
-        return (pizza.calculatedPrice !== action.payload.calculatedPrice)
+        return !(pizza.calculatedPrice === action.payload.calculatedPrice && pizza.id === action.payload.id)
       });
 
       if (state.cartPizzas.length === 0) {
         state.cartPizzas = [];
         state.totalPizzas = 0;
         state.totalPrice = 0;
+        localStorage.removeItem("cart");
       }
 
       state.totalPrice = state.cartPizzas.reduce((sum, pizza) => {
@@ -79,11 +87,11 @@ export const cartSlice = createSlice({
       state.cartPizzas = [];
       state.totalPizzas = 0;
       state.totalPrice = 0;
+      localStorage.removeItem("cart");
     }),
   }),
 });
 
-// Action creators are generated for each case reducer function
 export const { addPizza, decrementPizza, removePizza, clearPizza } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;

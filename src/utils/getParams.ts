@@ -1,6 +1,6 @@
 import { FetchPizzasArgs } from "@/redux/features/pizzas/pizzasSlice";
 
-let getFetchParams = ({category, sort, searchValue}: FetchPizzasArgs) => {
+let getParams = ({category, sort, searchValue}: FetchPizzasArgs) => {
 // Проверка для ситуаций если выбираем пиццы по категориям (0 это все пиццы, по умолчанию всегда передается 0) и хотим отсортировать по убыванию (префикс "-")
   if (sort.sortValue.includes("-") && category !== 0) {
     return {
@@ -32,4 +32,4 @@ let getFetchParams = ({category, sort, searchValue}: FetchPizzasArgs) => {
   }
 };
 
-export default getFetchParams
+export default getParams

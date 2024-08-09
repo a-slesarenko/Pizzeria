@@ -1,4 +1,4 @@
-import { CartPizza, Pizza } from "@/types/pizzasTypes";
+import { CartPizza, Pizza } from "@/types";
 import * as styles from "./PizzaBlock.module.scss";
 import { useEffect, useState } from "react";
 import Plus from "@/assets/images/svg/plus.svg";
@@ -9,7 +9,15 @@ import axios from "axios";
 import { thickness } from "@/helpers/ThisProjectLocalData";
 import calcPrice from "@/utils/calcPrice";
 
-interface Props extends Pizza {}
+interface ChosenPizzaType {
+  id: string,
+  type: number
+}
+
+interface ChosenPizzaSize {
+  id: string,
+  size: number,
+}
 
 const PizzaBlock = ({
   id,
@@ -19,20 +27,20 @@ const PizzaBlock = ({
   sizes,
   basePrice,
   calculatedPrice,
-}: Props) => {
+}: Pizza) => {
 
   const [activeType, setActiveType] = useState(() => {
-    const obj = JSON.parse(sessionStorage.getItem(`type:${id}`));
-    if (obj?.id === id) {
-      return obj.type;
+    const storedType: ChosenPizzaType = JSON.parse(sessionStorage.getItem(`type:${id}`));
+    if (storedType?.id === id) {
+      return storedType.type;
     }
     return 0;
   });
 
   const [activeSize, setActiveSize] = useState(() => {
-    const obj = JSON.parse(sessionStorage.getItem(`size:${id}`));
-    if (obj?.id === id) {
-      return obj.size;
+    const storedSize: ChosenPizzaSize = JSON.parse(sessionStorage.getItem(`size:${id}`));
+    if (storedSize?.id === id) {
+      return storedSize.size;
     }
     return 26;
   });
@@ -41,12 +49,14 @@ const PizzaBlock = ({
 
   const setTypeInSession = (type: number) => {
     setActiveType(type);
-    sessionStorage.setItem(`type:${id}`, JSON.stringify({ type, id }));
+    const itemWithChosenType: ChosenPizzaType = { type, id };
+    sessionStorage.setItem(`type:${id}`, JSON.stringify(itemWithChosenType));
   };
 
   const setSizeInSession = (size: number) => {
     setActiveSize(size);
-    sessionStorage.setItem(`size:${id}`, JSON.stringify({ size, id }));
+    const itemWithChosenSize: ChosenPizzaSize = { size, id };
+    sessionStorage.setItem(`size:${id}`, JSON.stringify(itemWithChosenSize));
   };
 
   const dispatch = useAppDispatch();
@@ -69,7 +79,8 @@ const PizzaBlock = ({
   };
 
   useEffect(() => {
-      setCurrentPrice(calcPrice(activeType, activeSize, basePrice));
+    let price = calcPrice(activeType, activeSize, basePrice);
+      setCurrentPrice((prev) => prev = price);
   }, [activeType, activeSize]);
 
   useEffect(() => {
@@ -89,7 +100,7 @@ const PizzaBlock = ({
               return (
                 <li
                   key={type}
-                  className={activeType === type && styles.active}
+                  className={activeType === type ? styles.active : ''}
                   onClick={() => setTypeInSession(type)}
                 >
                   {thickness[type]}
@@ -102,7 +113,7 @@ const PizzaBlock = ({
               return (
                 <li
                   key={size}
-                  className={activeSize === size && styles.active}
+                  className={activeSize === size ? styles.active : ''}
                   onClick={() => setSizeInSession(size)}
                 >
                   {size} см
