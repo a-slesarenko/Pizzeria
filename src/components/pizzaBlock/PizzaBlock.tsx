@@ -10,13 +10,13 @@ import { thickness } from "@/helpers/ThisProjectLocalData";
 import calcPrice from "@/utils/calcPrice";
 
 interface ChosenPizzaType {
-  id: string,
-  type: number
+  id: string;
+  type: number;
 }
 
 interface ChosenPizzaSize {
-  id: string,
-  size: number,
+  id: string;
+  size: number;
 }
 
 const PizzaBlock = ({
@@ -28,9 +28,10 @@ const PizzaBlock = ({
   basePrice,
   calculatedPrice,
 }: Pizza) => {
-
   const [activeType, setActiveType] = useState(() => {
-    const storedType: ChosenPizzaType = JSON.parse(sessionStorage.getItem(`type:${id}`));
+    const storedType: ChosenPizzaType = JSON.parse(
+      sessionStorage.getItem(`type:${id}`)
+    );
     if (storedType?.id === id) {
       return storedType.type;
     }
@@ -38,7 +39,9 @@ const PizzaBlock = ({
   });
 
   const [activeSize, setActiveSize] = useState(() => {
-    const storedSize: ChosenPizzaSize = JSON.parse(sessionStorage.getItem(`size:${id}`));
+    const storedSize: ChosenPizzaSize = JSON.parse(
+      sessionStorage.getItem(`size:${id}`)
+    );
     if (storedSize?.id === id) {
       return storedSize.size;
     }
@@ -80,12 +83,14 @@ const PizzaBlock = ({
 
   useEffect(() => {
     let price = calcPrice(activeType, activeSize, basePrice);
-      setCurrentPrice((prev) => prev = price);
+    setCurrentPrice((prev) => (prev = price));
   }, [activeType, activeSize]);
 
   useEffect(() => {
     if (currentPrice !== calculatedPrice) {
-      axios.patch(`https://669a09469ba098ed61fe129b.mockapi.io/pizzas/${id}`, { calculatedPrice: currentPrice })
+      axios.patch(`https://669a09469ba098ed61fe129b.mockapi.io/pizzas/${id}`, {
+        calculatedPrice: currentPrice,
+      });
     }
   }, [currentPrice]);
 
@@ -100,7 +105,7 @@ const PizzaBlock = ({
               return (
                 <li
                   key={type}
-                  className={activeType === type ? styles.active : ''}
+                  className={activeType === type ? styles.active : ""}
                   onClick={() => setTypeInSession(type)}
                 >
                   {thickness[type]}
@@ -113,7 +118,7 @@ const PizzaBlock = ({
               return (
                 <li
                   key={size}
-                  className={activeSize === size ? styles.active : ''}
+                  className={activeSize === size ? styles.active : ""}
                   onClick={() => setSizeInSession(size)}
                 >
                   {size} см
@@ -123,9 +128,7 @@ const PizzaBlock = ({
           </ul>
         </div>
         <div className={styles.block__bottom}>
-          <div className={styles.price}>
-            от {currentPrice} ₽
-          </div>
+          <div className={styles.price}>от {currentPrice} ₽</div>
           <button className={styles.button} onClick={addPizzaOnClick}>
             <Plus className={styles.plus} />
             <span>Добавить</span>

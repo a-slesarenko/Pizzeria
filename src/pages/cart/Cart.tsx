@@ -31,7 +31,7 @@ const Cart = () => {
       setIsOpen(false);
     }
   };
-  
+
   return cart.cartPizzas.length === 0 ? (
     <CartEmpty />
   ) : (
@@ -51,7 +51,10 @@ const Cart = () => {
         <ul className={styles.items}>
           {cart.cartPizzas.map((pizza) => {
             return (
-              <li key={pizza.calculatedPrice + pizza.title} className={styles.item}>
+              <li
+                key={pizza.calculatedPrice + pizza.title}
+                className={styles.item}
+              >
                 <div className={styles.img}>
                   <img src={pizza.imageUrl} alt="Pizza-Picture" />
                 </div>

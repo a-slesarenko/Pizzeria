@@ -7,9 +7,9 @@
 	--light-grey: #f3f3f3;
 	--creamy: #f7dfc0;
 	--brown: #5f1606;
-	--brown-light: #814f44;
-	--creamy-light: #fdefde;
-	--creamy-dark:#ffe0b8;
+	--brown-light: #8c0004;
+	--creamy-light:#ffebd3;
+	--creamy-dark: #ffe0b8;
 	
 	/* По умолчанию */
 	--header-bg: var(--header-bg-light);
@@ -20,6 +20,7 @@
 	--selector-active: var(--selector-active-dark);
 	--selector-bg: var(--selector-bg-dark);
 	--footer-bg: var(--footer-bg-dark);
+  --footer-text: var(--footer-text-dark);
 
 	--accent: var(--accent-dark);
 /* ------------------------------------------------------------------------------------------------------------------------------- */
@@ -34,6 +35,7 @@
 	--selector-bg-light: var(--light-grey);
 
 	--footer-bg-light: var(--brown-light);
+  --footer-text-light: var(--light-grey);
 
     /* Dark mode */
     --header-bg-dark: var(--brown);
@@ -46,5 +48,6 @@
 	--selector-bg-dark: var(--creamy-dark);
 
 	--footer-bg-dark: var(--brown);
+  --footer-text-dark: var(--creamy);
     /* _________________________________ */
 }

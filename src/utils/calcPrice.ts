@@ -1,5 +1,4 @@
 const calcPrice = (type: number, size: number, basePrice: number) => {
-
   if (type === 0 && size === 26) {
     return basePrice;
   } else if (type === 0 && size === 30) {

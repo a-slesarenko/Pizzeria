@@ -8,28 +8,43 @@ import { categories } from "@/helpers/ThisProjectLocalData";
 import { useState } from "react";
 
 const Categories = () => {
-    const category = useSelector((state: RootState) => state.filter.category);
-    const dispatch = useAppDispatch();
-    const [isOpen, setIsOpen] = useState(false);
+  const category = useSelector((state: RootState) => state.filter.category);
+  const dispatch = useAppDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <>
-            <div className={styles.categories} >
-                <Button onClick={() => setIsOpen((prev) => !prev)}>
-                <Filter/>
-                <span>Фильтры</span>
-                </Button>
-                {isOpen && <div className={styles.filter_popup}> 
-                    <ul>
-                        {categories.map((item, index) => {
-                            return  <li key={item} onClick={() => dispatch(setCategory(index))} className={category === index ? styles.active : ""} >{item}</li>
-                        })}
-                    </ul>
-                </div>}
-            </div>
-            {isOpen && <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}></div>}
-        </>
-    )
-}
+  return (
+    <>
+      <div className={styles.categories}>
+        <Button onClick={() => setIsOpen((prev) => !prev)}>
+          <Filter />
+          <span>Фильтры</span>
+        </Button>
+        {isOpen && (
+          <div className={styles.filter_popup}>
+            <ul>
+              {categories.map((item, index) => {
+                return (
+                  <li
+                    key={item}
+                    onClick={() => dispatch(setCategory(index))}
+                    className={category === index ? styles.active : ""}
+                  >
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+      {isOpen && (
+        <div
+          className="overlay"
+          onClick={() => setIsOpen((prev) => !prev)}
+        ></div>
+      )}
+    </>
+  );
+};
 
-export default Categories
+export default Categories;

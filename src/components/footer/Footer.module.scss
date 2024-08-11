@@ -5,7 +5,7 @@ footer {
     border-top: 2px solid #f6f6f6;
     // linear-gradient(45deg, rgb(45, 8, 0), rgb(184, 77, 54))
     background: var(--footer-bg);
-    color: var(--header-text);
+    color: var(--footer-text);
     font-size: clamp(1rem, 0.875rem + 0.63vw, 1.625rem);
     transition:
         background-color 2s ease,
@@ -87,6 +87,7 @@ footer {
 
                 p {
                     font-size: clamp(0.938rem, 0.85rem + 0.44vw, 1.375rem);
+                    line-height: 1.2;
                 }
             }
         }

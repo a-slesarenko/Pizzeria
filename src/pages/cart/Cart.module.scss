@@ -186,7 +186,7 @@ main {
                     flex: 0 1 4%;
                     align-items: center;
                     justify-content: center;
-                    background-color: #fff;
+                    background-color: var(--selector-active);
                     border: 2px solid $grey;
                     border-radius: 50%;
                     min-width: 32px;

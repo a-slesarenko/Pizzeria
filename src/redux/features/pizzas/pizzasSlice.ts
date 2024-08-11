@@ -1,5 +1,9 @@
 import { Pizza } from "@/types";
-import { asyncThunkCreator, buildCreateSlice, type PayloadAction } from "@reduxjs/toolkit";
+import {
+  asyncThunkCreator,
+  buildCreateSlice,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 import { Sort } from "../filter/filterSlice";
 import getParams from "@/utils/getParams";
@@ -11,8 +15,8 @@ export interface FetchPizzasArgs {
 }
 
 const createSlice = buildCreateSlice({
-    creators: { asyncThunk: asyncThunkCreator },
-  })
+  creators: { asyncThunk: asyncThunkCreator },
+});
 
 export interface PizzasState {
   allPizzas: Pizza[];
@@ -31,31 +35,37 @@ export const pizzasSlice = createSlice({
   initialState,
   reducers: (create) => ({
     setPizzas: create.reducer((state, action: PayloadAction<Pizza[]>) => {
-        state.allPizzas = action.payload
+      state.allPizzas = action.payload;
     }),
-    fetchPizzas: create.asyncThunk<Pizza[], FetchPizzasArgs>(async ({category, sort, searchValue}) => {
-      const axiosParams = getParams({category, sort, searchValue});
-      const {data} = await axios.get <Pizza[]> ("https://669a09469ba098ed61fe129b.mockapi.io/pizzas", {
-      params: axiosParams
-    });
-    return data;
-},{
-    pending: (state) => {
-        state.status = "loading";
-        state.allPizzas = [];
-     },
-     fulfilled: (state, action) => {
-        state.allPizzas = action.payload;
-        state.returnToServer = action.payload.map((pizza) => {
-          return {...pizza, calculatedPrice: pizza.basePrice}
-        });
-        state.status = "success";
-     },
-     rejected: (state) => {
-        state.status = "error";
-        state.allPizzas = [];
-     },
-})
+    fetchPizzas: create.asyncThunk<Pizza[], FetchPizzasArgs>(
+      async ({ category, sort, searchValue }) => {
+        const axiosParams = getParams({ category, sort, searchValue });
+        const { data } = await axios.get<Pizza[]>(
+          "https://669a09469ba098ed61fe129b.mockapi.io/pizzas",
+          {
+            params: axiosParams,
+          }
+        );
+        return data;
+      },
+      {
+        pending: (state) => {
+          state.status = "loading";
+          state.allPizzas = [];
+        },
+        fulfilled: (state, action) => {
+          state.allPizzas = action.payload;
+          state.returnToServer = action.payload.map((pizza) => {
+            return { ...pizza, calculatedPrice: pizza.basePrice };
+          });
+          state.status = "success";
+        },
+        rejected: (state) => {
+          state.status = "error";
+          state.allPizzas = [];
+        },
+      }
+    ),
   }),
 });
 

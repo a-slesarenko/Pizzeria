@@ -11,17 +11,17 @@ import Sun from "@/assets/images/svg/sun.svg";
 
 interface HeaderProps {
   mode: string;
-  setMode: React.Dispatch<string>,
+  setMode: React.Dispatch<string>;
 }
 
-const Header = ({mode, setMode}: HeaderProps) => {
+const Header = ({ mode, setMode }: HeaderProps) => {
   const cart = useSelector((state: RootState) => state.cart);
   const isFirstRender = useRef(false);
 
   useEffect(() => {
     if (isFirstRender.current && cart.totalPizzas !== 0) {
       const pizzasToStore = JSON.stringify(cart);
-      localStorage.setItem('cart', pizzasToStore);
+      localStorage.setItem("cart", pizzasToStore);
     }
     isFirstRender.current = true;
   }, [cart]);
@@ -38,27 +38,31 @@ const Header = ({mode, setMode}: HeaderProps) => {
     <header>
       <div className="container">
         <div className={styles.flex_container}>
-            <div className={styles.logo}>
-              <NavLink to={"/"}>
-                <img src={logo} alt="Pizza logo" />
-              </NavLink>
-              <div className={styles.logo_text}>
-                <h1>Andrey's Pizza</h1>
-                <p>самая вкусная пицца написанная на React'е</p>
-              </div>
+          <div className={styles.logo}>
+            <NavLink to={"/"}>
+              <img src={logo} alt="Pizza logo" />
+            </NavLink>
+            <div className={styles.logo_text}>
+              <h1>Andrey's Pizza</h1>
+              <p>самая вкусная пицца написанная на React'е</p>
             </div>
-            <div className={styles.mode_wrapper}>
-              <span>{mode === "dark" ? "light" : "dark"} mode</span>
-              <button className={styles.mode_switcher} onClick={modeClickHandler}>
-                {mode === "dark" ? <Sun className={styles.sun}/> : <Moon className={styles.moon}/>}
-              </button>
-            </div>
+          </div>
+          <div className={styles.mode_wrapper}>
+            <span>{mode === "dark" ? "light" : "dark"} mode</span>
+            <button className={styles.mode_switcher} onClick={modeClickHandler}>
+              {mode === "dark" ? (
+                <Sun className={styles.sun} />
+              ) : (
+                <Moon className={styles.moon} />
+              )}
+            </button>
+          </div>
           <NavLink to={"cart"}>
             <Button>
-                <span>{cart.totalPrice}</span>
-                <div className={styles.button_split}></div>
-                <Cart className={styles.cart}/>
-                <span>{cart.totalPizzas}</span>
+              <span>{cart.totalPrice}</span>
+              <div className={styles.button_split}></div>
+              <Cart className={styles.cart} />
+              <span>{cart.totalPizzas}</span>
             </Button>
           </NavLink>
         </div>
@@ -67,4 +71,4 @@ const Header = ({mode, setMode}: HeaderProps) => {
   );
 };
 
-export default Header
+export default Header;

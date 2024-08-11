@@ -11,13 +11,15 @@ import NotFound from "../notfound/NotFound";
 import Search from "@/components/search/Search";
 
 const Content = () => {
-  const {allPizzas, status} = useSelector((state: RootState) => state.pizzas);
-  const {sort, category, searchValue } = useSelector((state: RootState) => state.filter);
+  const { allPizzas, status } = useSelector((state: RootState) => state.pizzas);
+  const { sort, category, searchValue } = useSelector(
+    (state: RootState) => state.filter
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchPizzas({category, sort, searchValue}));
-  }, [category, sort, searchValue])
+    dispatch(fetchPizzas({ category, sort, searchValue }));
+  }, [category, sort, searchValue]);
 
   return (
     <main>
@@ -32,18 +34,23 @@ const Content = () => {
           </div>
         </div>
         <h2 className={styles.content_title}>Все пиццы</h2>
-        <ul className={status === "loading" ? styles.content_skeletons : styles.content_items}>
-            {status === "error" && <NotFound />}
-            {status === "loading"
-              ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-              : allPizzas.map((item) => {
-                return <PizzaBlock {...item} key={item.id} />
-              })
-            }
+        <ul
+          className={
+            status === "loading"
+              ? styles.content_skeletons
+              : styles.content_items
+          }
+        >
+          {status === "error" && <NotFound />}
+          {status === "loading"
+            ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+            : allPizzas.map((item) => {
+                return <PizzaBlock {...item} key={item.id} />;
+              })}
         </ul>
       </div>
     </main>
   );
 };
 
-export default Content
+export default Content;

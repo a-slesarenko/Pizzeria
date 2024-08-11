@@ -32,18 +32,18 @@ export function buildPlugins(options: BuildOptions): Configuration["plugins"] {
         chunkFilename: "css/[name].[contenthash:8].css",
       })
     );
-    plugins.push(
-      new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(options.paths.public, "img"),
-            to: path.resolve(options.paths.output, "img"),
-          },
-          // Добавлять еще:
-          // { from: "other", to: "public" },
-        ],
-      })
-    );
+    // plugins.push(
+    //   new CopyPlugin({
+    //     patterns: [
+    //       {
+    //         from: path.resolve(options.paths.public, "img"),
+    //         to: path.resolve(options.paths.output, "img"),
+    //       },
+    //       // Добавлять еще:
+    //       // { from: "other", to: "public" },
+    //     ],
+    //   })
+    // );
   }
 
   if (options.analyzer) {

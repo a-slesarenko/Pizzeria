@@ -10,29 +10,31 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import clsx from "clsx";
 
 const App = () => {
-  const returnPizzas = useSelector((state: RootState) => state.pizzas.returnToServer);
-  const [mode, setMode] = useLocalStorage(
-    "siteTheme",
-    "dark"
+  const returnPizzas = useSelector(
+    (state: RootState) => state.pizzas.returnToServer
   );
+  const [mode, setMode] = useLocalStorage("siteTheme", "dark");
 
-useEffect(() => {
-  return () => {
-    axios.put("https://669a09469ba098ed61fe129b.mockapi.io/pizzas", returnPizzas)
-  }
-}, []);
+  useEffect(() => {
+    return () => {
+      axios.put(
+        "https://669a09469ba098ed61fe129b.mockapi.io/pizzas",
+        returnPizzas
+      );
+    };
+  }, []);
 
-const wrapperCombinedClass = clsx(
-  styles.wrapper,
-  mode === "light" && "light"
-);
+  const wrapperCombinedClass = clsx(
+    styles.wrapper,
+    mode === "light" && "light"
+  );
 
   return (
     <div className={wrapperCombinedClass}>
       <Header mode={mode} setMode={setMode} />
       <Outlet />
       <Footer />
-      <ScrollRestoration/>
+      <ScrollRestoration />
     </div>
   );
 };
