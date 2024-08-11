@@ -12,15 +12,15 @@
 	--creamy-dark: #ffe0b8;
 	
 	/* По умолчанию */
-	--header-bg: var(--header-bg-light);
-	--header-text: var(--header-text-light);
-	--header-logo-box-shadow: var(--header-logo-box-shadow-light);
+	--header-bg: var(--header-bg-dark);
+	--header-text: var(--header-text-dark);
+	--header-logo-box-shadow: var(--header-logo-box-shadow-dark);
 
     --page-bg: var(--page-bg-dark);
 	--selector-active: var(--selector-active-dark);
 	--selector-bg: var(--selector-bg-dark);
 	--footer-bg: var(--footer-bg-dark);
-  --footer-text: var(--footer-text-dark);
+	--footer-text: var(--footer-text-dark);
 
 	--accent: var(--accent-dark);
 /* ------------------------------------------------------------------------------------------------------------------------------- */
