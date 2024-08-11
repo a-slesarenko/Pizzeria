@@ -1,6 +1,6 @@
 {
   "name": "pizzeria",
-  "version": "0.9",
+  "version": "1.0",
   "homepage": "https://a-slesarenko.github.io/Pizzeria",
   "main": "index.js",
   "scripts": {
