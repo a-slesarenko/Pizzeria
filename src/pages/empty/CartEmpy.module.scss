@@ -1,3 +1,5 @@
+@use "../../styles_utilities/scss-resourses.scss" as *;
+
 main {
     letter-spacing: 0.05rem;
 
@@ -5,29 +7,30 @@ main {
         margin: 0 auto;
         max-width: 830px;
 
-        .flex_wrapper{
+        .flex_wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            h2{
+            h2 {
                 font-size: 32px;
                 text-align: center;
             }
 
-            p{
+            p {
                 font-size: 18px;
                 color: #777777;
             }
 
-            img{
+            img {
                 width: min(360px, 90%);
                 border-radius: 50%;
                 box-shadow: 0px 10px 15px 10px #868686;
                 margin: 20px 0 35px 0;
+                @include noselect();
             }
 
-            .back_btn{
+            .back_btn {
                 margin: 15px 0;
             }
         }

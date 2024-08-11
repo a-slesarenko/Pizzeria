@@ -2,7 +2,7 @@
     position: relative;
     z-index: 50;
 
-    @media(min-width: 2500px) {
+    @media (min-width: 2500px) {
         font-size: 34px;
     }
 
@@ -11,8 +11,8 @@
         align-items: center;
         cursor: pointer;
 
-        @media(max-width: 767px) {
-            span{
+        @media (max-width: 767px) {
+            span {
                 display: none;
             }
         }
@@ -22,7 +22,7 @@
             width: 10px;
             height: 6px;
 
-            @media(min-width: 2500px) {
+            @media (min-width: 2500px) {
                 margin-right: 12px;
                 width: 20px;
                 height: 12px;
@@ -34,7 +34,7 @@
         }
 
         span {
-            color: var(--orange);
+            color: #ff4800;
             text-decoration: underline;
         }
     }
@@ -43,14 +43,15 @@
         position: absolute;
         right: 0;
         margin-top: 15px;
-        background: #ffffff;
+        background-color: var(--selector-active);
+        transition: background-color 2s ease;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
         border-radius: 10px;
         overflow: hidden;
         padding: 10px 0;
         width: 160px;
 
-        @media(min-width: 2500px) {
+        @media (min-width: 2500px) {
             width: 340px;
         }
 

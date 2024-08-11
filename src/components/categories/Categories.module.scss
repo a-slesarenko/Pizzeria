@@ -1,12 +1,4 @@
-@mixin noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-     supported by Chrome, Opera and Firefox */
-}
+@use "../../styles_utilities/scss-resourses.scss" as *;
 
 .categories {
     display: flex;
@@ -18,7 +10,7 @@
         top: 50px;
         left: 0;
         margin-top: 15px;
-        background:#fe5f1e;
+        background: #fe5f1e;
         box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.452);
         border-radius: 30px;
         overflow: hidden;
@@ -73,13 +65,13 @@
                 }
 
                 &:hover {
-                    background-color: darken(#fe5f1e, 4%);
+                    background-color: darken($orange, 4%);
                 }
 
                 &.active {
                     transform: translateY(2px);
                     border: unset;
-                    background-color: darken(#fe5f1e, 10%);
+                    background-color: darken($orange, 10%);
                 }
             }
         }

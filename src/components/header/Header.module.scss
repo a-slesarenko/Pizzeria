@@ -1,10 +1,15 @@
+@use "../../styles_utilities/scss-resourses.scss" as *;
+
 header {
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 2px solid #f6f6f6;
   padding: 25px 0;
   background-color: var(--header-bg);
   color: var(--header-text);
+  transition:
+    background-color 2s ease,
+    color 1.3s ease;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     position: sticky;
     top: 0px;
     left: 0px;
@@ -17,34 +22,71 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    @media(min-width: 2500px) {
+    @media (min-width: 2500px) {
       justify-content: space-between;
     }
 
-    @media(max-width: 1000px) {
+    @media (max-width: 1090px) {
       flex-wrap: wrap;
       justify-content: space-around;
-      gap: 10px;
+      gap: 15px;
     }
-    
+
+    .mode_wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+
+      span {
+        font-family: "Permanent Marker", cursive;
+        font-weight: 700;
+        font-style: normal;
+        font-size: clamp(1rem, 0.85rem + 0.75vw, 1.75rem);
+      }
+
+      .mode_switcher {
+        background-color: transparent;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+
+        .sun {
+          width: 100%;
+          height: 100%;
+          fill: var(--creamy);
+        }
+
+        .moon {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
     .logo {
       display: flex;
-      color: var(--black);
-  
+      @include noselect();
+      box-shadow: 1px 1px 25px 5px var(--header-logo-box-shadow);
+      transition: box-shadow 1s ease;
+      border-radius: 70px 10px 10px 70px;
+      padding-right: 10px;
+
       img {
         margin-right: clamp(1.563rem, 1.063rem + 2.5vw, 4.063rem);
         border-radius: 50%;
-        width: clamp(8.125rem, 7.75rem + 1.88vw, 10rem);
-  
-        @media(min-width: 2500px) {
-          width: 400px;
+        width: clamp(8.75rem, 8.25rem + 2.5vw, 11.25rem);
+        box-shadow: 1px 1px 15px 5px rgb(0, 0, 0);
+
+        &:active {
+          transform: translateY(1px);
         }
 
-        // @media(max-width: 500px) {
-        //   width: 130px;
-        // }
+        @media (min-width: 2500px) {
+          width: 400px;
+        }
       }
-  
+
       h1 {
         font-size: clamp(1.5rem, 1.175rem + 1.63vw, 3.125rem);
         letter-spacing: 0.1em;
@@ -52,24 +94,24 @@ header {
         font-family: "Permanent Marker", cursive;
         font-weight: 800;
         font-style: normal;
-  
-        @media(min-width: 2500px) {
+
+        @media (min-width: 2500px) {
           font-size: 50px;
         }
       }
-  
+
       p {
         font-size: clamp(1rem, 0.85rem + 0.75vw, 1.75rem);
         margin-top: 5px;
-        color: #7b7b7b;
         font-family: "Permanent Marker", cursive;
         font-weight: 800;
         font-style: normal;
-        @media(min-width: 2500px) {
+        color: var(--accent);
+        @media (min-width: 2500px) {
           font-size: 40px;
         }
       }
-  
+
       .logo_text {
         display: flex;
         flex-direction: column;
@@ -81,21 +123,21 @@ header {
     .button_split {
       width: 1px;
       height: 25px;
-      background-color: #ffffff;
+      background-color: #fff;
       margin: 0 3px;
 
-      @media(min-width: 2500px) {
+      @media (min-width: 2500px) {
         width: 2px;
         height: 60px;
       }
     }
 
     .cart {
-      fill:white;
+      fill: #fff;
       width: 16px;
       height: 16px;
 
-      @media(min-width: 2500px) {
+      @media (min-width: 2500px) {
         width: 40px;
         height: 40px;
       }

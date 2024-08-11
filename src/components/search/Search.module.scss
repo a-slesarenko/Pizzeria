@@ -1,17 +1,19 @@
-$orange: #fe5f1e;
+@use "../../styles_utilities/scss-resourses.scss" as *;
 
 .wrapper {
     width: clamp(15.625rem, 13.75rem + 9.38vw, 25rem);
     height: clamp(2.813rem, 2.563rem + 1.25vw, 4.063rem);
-    
+
     .flex_wrapper {
         display: flex;
         column-gap: 10px;
         width: 100%;
         height: 100%;
         padding: 10px;
-        box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.20);
+        box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
         border-radius: 35px;
+        background-color: var(--selector-active);
+        transition: background-color 2s ease;
 
         @media (min-width: 2500px) {
             column-gap: 6px;
@@ -26,6 +28,8 @@ $orange: #fe5f1e;
             flex: 0 0 75%;
 
             input {
+                background-color: var(--selector-active);
+                transition: background-color 2s ease;
                 color: rgb(139, 138, 138);
                 width: 98%;
                 height: 100%;

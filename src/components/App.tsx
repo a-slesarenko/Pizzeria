@@ -6,9 +6,15 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import axios from "axios";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import clsx from "clsx";
 
 const App = () => {
   const returnPizzas = useSelector((state: RootState) => state.pizzas.returnToServer);
+  const [mode, setMode] = useLocalStorage(
+    "siteTheme",
+    "dark"
+  );
 
 useEffect(() => {
   return () => {
@@ -16,9 +22,14 @@ useEffect(() => {
   }
 }, []);
 
+const wrapperCombinedClass = clsx(
+  styles.wrapper,
+  mode === "light" && "light"
+);
+
   return (
-    <div className={styles.wrapper}>
-      <Header />
+    <div className={wrapperCombinedClass}>
+      <Header mode={mode} setMode={setMode} />
       <Outlet />
       <Footer />
       <ScrollRestoration/>

@@ -1,8 +1,6 @@
-$orange: #fe5f1e;
-$grey: #a7a7a7;
-$duration: 0.15s;
+@use "../../styles_utilities/scss-resourses.scss" as *;
 
-main{
+main {
     .cart__container {
         margin: 0 auto;
         max-width: 830px;
@@ -11,7 +9,7 @@ main{
             display: flex;
             justify-content: space-between;
 
-            @media(max-width: 620px) {
+            @media (max-width: 620px) {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -26,13 +24,13 @@ main{
                     margin-right: 10px;
                 }
             }
-            
+
             .trash {
                 fill: var(--white);
                 width: 25px;
                 height: 25px;
 
-                @media(max-width: 620px) {
+                @media (max-width: 620px) {
                     width: 16px;
                     height: 16px;
                 }
@@ -53,25 +51,25 @@ main{
 
             .item {
                 display: flex;
-                align-items:center;
+                align-items: center;
                 justify-content: center;
                 width: 100%;
 
-
-                @media(max-width: 620px) {
+                @media (max-width: 620px) {
                     padding-bottom: 10px;
                     column-gap: 10px;
                     row-gap: 15px;
                     flex-wrap: wrap;
-                    justify-content:space-around;
+                    justify-content: space-around;
                     border-bottom: 1px solid rgb(235, 235, 235);
                 }
 
                 .img {
                     flex: 0 1 10%;
                     margin-right: 15px;
+                    @include noselect();
 
-                    @media(max-width: 620px) {
+                    @media (max-width: 620px) {
                         order: 1;
                     }
 
@@ -81,7 +79,7 @@ main{
                         max-width: 100%;
                         box-shadow: 0 0 10px 4px rgb(0, 0, 0);
 
-                        @media(max-width: 620px) {
+                        @media (max-width: 620px) {
                             order: 1;
                         }
                     }
@@ -93,7 +91,7 @@ main{
                     justify-content: center;
                     flex-direction: column;
 
-                    @media(max-width: 620px) {
+                    @media (max-width: 620px) {
                         order: 2;
                     }
 
@@ -115,7 +113,7 @@ main{
                     align-items: center;
                     column-gap: 10px;
 
-                    @media(max-width: 620px) {
+                    @media (max-width: 620px) {
                         order: 5;
                     }
 
@@ -128,32 +126,35 @@ main{
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        background-color: #fff;
+                        background-color: var(--selector-active);
+                        transition: background-color 2s ease;
                         border: 2px solid $orange;
                         border-radius: 50%;
                         min-width: 32px;
                         height: 32px;
                         padding: 0;
-                        transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+                        transition:
+                            background-color 0.15s ease-in-out,
+                            border-color 0.15s ease-in-out;
 
-                        .plus{
+                        .plus {
                             width: 10px;
                             height: 10px;
                         }
 
-                        .minus{
+                        .minus {
                             width: 15px;
                             height: 15px;
                         }
 
                         &:hover {
                             background-color: $orange;
-                            .plus{
+                            .plus {
                                 path {
                                     fill: #fff;
                                 }
                             }
-                            .minus{
+                            .minus {
                                 path {
                                     fill: #fff;
                                 }
@@ -175,7 +176,7 @@ main{
                     font-size: 22px;
                     font-weight: 700;
 
-                    @media(max-width: 620px) {
+                    @media (max-width: 620px) {
                         order: 4;
                     }
                 }
@@ -191,20 +192,22 @@ main{
                     min-width: 32px;
                     height: 32px;
                     padding: 0;
-                    transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+                    transition:
+                        background-color 0.15s ease-in-out,
+                        border-color 0.15s ease-in-out;
 
-                    @media(max-width: 620px) {
+                    @media (max-width: 620px) {
                         order: 3;
                     }
 
-                    .remove{
+                    .remove {
                         width: 10px;
                         height: 10px;
                     }
 
                     &:hover {
                         background-color: $grey;
-                        .remove{
+                        .remove {
                             path {
                                 fill: #fff;
                             }
@@ -212,7 +215,7 @@ main{
                     }
 
                     &:active {
-                        background-color: darken( $grey, 8%);
+                        background-color: darken($grey, 8%);
                         transform: translateY(1px);
                     }
                 }
@@ -222,7 +225,7 @@ main{
         .cart__bottom {
             padding: 50px 0;
 
-            @media(max-width: 620px) {
+            @media (max-width: 620px) {
                 padding: 10px 0;
             }
 
@@ -232,7 +235,7 @@ main{
                 align-items: center;
                 font-size: 22px;
 
-                @media(max-width: 620px) {
+                @media (max-width: 620px) {
                     flex-direction: column;
                     row-gap: 15px;
                 }

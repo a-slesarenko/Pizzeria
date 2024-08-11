@@ -1,3 +1,5 @@
+@use "../../styles_utilities/scss-resourses.scss" as *;
+
 .wrapper {
     position: absolute;
     top: 0;
@@ -59,7 +61,7 @@
 
                 &:active {
                     transform: scale(0.9);
-                    background-color: darken(rgb(83, 16, 1), 1%);
+                    background-color: darken($brown, 2%);
                 }
                 &:hover {
                     box-shadow: 1px 1px 15px 5px rgb(255, 255, 255);

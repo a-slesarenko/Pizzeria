@@ -6,8 +6,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/images/logo.png";
+import Moon from "@/assets/images/svg/moon.svg";
+import Sun from "@/assets/images/svg/sun.svg";
 
-const Header = () => {
+interface HeaderProps {
+  mode: string;
+  setMode: React.Dispatch<string>,
+}
+
+const Header = ({mode, setMode}: HeaderProps) => {
   const cart = useSelector((state: RootState) => state.cart);
   const isFirstRender = useRef(false);
 
@@ -19,19 +26,33 @@ const Header = () => {
     isFirstRender.current = true;
   }, [cart]);
 
+  const modeClickHandler = () => {
+    if (mode === "dark") {
+      setMode("light");
+    } else {
+      setMode("dark");
+    }
+  };
+
   return (
     <header>
       <div className="container">
         <div className={styles.flex_container}>
-          <NavLink to={"/"}>
             <div className={styles.logo}>
-              <img src={logo} alt="Pizza logo" />
+              <NavLink to={"/"}>
+                <img src={logo} alt="Pizza logo" />
+              </NavLink>
               <div className={styles.logo_text}>
                 <h1>Andrey's Pizza</h1>
                 <p>самая вкусная пицца написанная на React'е</p>
               </div>
             </div>
-          </NavLink>
+            <div className={styles.mode_wrapper}>
+              <span>{mode === "dark" ? "light" : "dark"} mode</span>
+              <button className={styles.mode_switcher} onClick={modeClickHandler}>
+                {mode === "dark" ? <Sun className={styles.sun}/> : <Moon className={styles.moon}/>}
+              </button>
+            </div>
           <NavLink to={"cart"}>
             <Button>
                 <span>{cart.totalPrice}</span>

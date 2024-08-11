@@ -1,0 +1,18 @@
+// Файл для общих scss миксинов, переменных, функций.
+//  Эти переменные используются только для scss функций (darken, laghten и тп.).
+$orange: #fe5f1e;
+$grey: #a7a7a7;
+$brown: #531001;
+// ------------------------------------------------------------------------------------------------------------------------------------------
+ // Миксины
+    // Запрещает выделление текста
+    @mixin noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+        supported by Chrome, Opera and Firefox */
+    }
+// ------------------------------------------------------------------------------------------------------------------------------------------

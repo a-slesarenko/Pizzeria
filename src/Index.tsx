@@ -4,7 +4,7 @@ import {createHashRouter, createRoutesFromElements, Route, RouterProvider } from
 import { Provider } from "react-redux";
 import {store} from "@/redux/store";
 import "./index.scss";
-import "./css_utilities/globalVariables.css";
+import "./styles_utilities/globalVariables.css";
 import Content from "./pages/home/Content";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";

@@ -31,8 +31,8 @@ const Content = () => {
             <Sort />
           </div>
         </div>
-        <h2 className={styles.content__title}>Все пиццы</h2>
-        <ul className={styles.content__items}>
+        <h2 className={styles.content_title}>Все пиццы</h2>
+        <ul className={status === "loading" ? styles.content_skeletons : styles.content_items}>
             {status === "error" && <NotFound />}
             {status === "loading"
               ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
