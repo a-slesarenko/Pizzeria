@@ -13,41 +13,36 @@
 	
 	/* По умолчанию */
 	--header-bg: var(--header-bg-dark);
-	--header-text: var(--header-text-dark);
+	--text: var(--text-dark);
 	--header-logo-box-shadow: var(--header-logo-box-shadow-dark);
 
     --page-bg: var(--page-bg-dark);
 	--selector-active: var(--selector-active-dark);
 	--selector-bg: var(--selector-bg-dark);
 	--footer-bg: var(--footer-bg-dark);
-	--footer-text: var(--footer-text-dark);
 
-	--accent: var(--accent-dark);
+	--accent: var(--golden);
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 	/* Light mode */
     --header-bg-light: var(--white);
-	--header-text-light: var(--black);
+	--text-light: var(--black);
 	--header-logo-box-shadow-light: transparent;
 
     --page-bg-light: var(--white);
-	--accent-light: var(--orange);
 	--selector-active-light: var(--white);
 	--selector-bg-light: var(--light-grey);
 
 	--footer-bg-light: var(--brown-light);
-  --footer-text-light: var(--light-grey);
 
     /* Dark mode */
     --header-bg-dark: var(--brown);
-	--header-text-dark: var(--creamy);
+	--text-dark: var(--creamy-light);
 	--header-logo-box-shadow-dark: rgb(45, 8, 0);
 
-    --page-bg-dark: var(--creamy);
-	--accent-dark: var(--golden);
+    --page-bg-dark: var(--brown);
 	--selector-active-dark: var(--creamy-light);
 	--selector-bg-dark: var(--creamy-dark);
 
 	--footer-bg-dark: var(--brown);
-  --footer-text-dark: var(--creamy);
     /* _________________________________ */
 }

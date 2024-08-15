@@ -1,5 +1,4 @@
 import * as styles from "./Sort.module.scss";
-import Arrow from "@/assets/images/svg/arrow-top.svg";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { setSortValue } from "@/redux/features/filter/filterSlice";
@@ -18,7 +17,6 @@ const Sort = () => {
           className={styles.sort__label}
           onClick={() => setIsOpen((prev) => !prev)}
         >
-          <Arrow className={styles.arrow} />
           <b>Сортировка по:</b>
           <span>{sort.name}</span>
         </div>

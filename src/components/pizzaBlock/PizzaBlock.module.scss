@@ -166,7 +166,7 @@
             transition:
                 background-color 0.15s ease-in-out,
                 border-color 0.15s ease-in-out;
-            border: 1px solid $orange;
+            border: 1px solid $brown-light;
             @include noselect();
 
             @media (min-width: 2500px) {
@@ -176,7 +176,7 @@
             i {
                 display: inline-block;
                 border-radius: 30px;
-                background-color: $orange;
+                background-color: $brown-light;
                 color: #fff;
                 font-weight: 600;
                 width: 22px;
@@ -199,7 +199,7 @@
             }
 
             span {
-                color: $orange;
+                color: $brown-light;
                 transition: all 0.15s ease-in-out;
                 font-weight: 600;
                 font-size: 16px;
@@ -213,6 +213,9 @@
                 margin-right: 3px;
                 width: 12px;
                 height: 12px;
+                path{
+                    fill: $brown-light;
+                }
 
                 @media (min-width: 2500px) {
                     margin-right: 6px;
@@ -225,7 +228,7 @@
             }
 
             &:hover {
-                background-color: $orange;
+                background-color: $brown-light;
                 .plus {
                     path {
                         fill: #fff;
@@ -237,12 +240,12 @@
 
                 i {
                     background-color: #fff;
-                    color: $orange;
+                    color: $brown-light;
                 }
             }
 
             &:active {
-                background-color: darken($orange, 12%);
+                background-color: darken($brown-light, 12%);
                 transform: translateY(1px);
             }
         }

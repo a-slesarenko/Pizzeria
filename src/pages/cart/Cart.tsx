@@ -104,7 +104,7 @@ const Cart = () => {
           <div className={styles.buttons}>
             <NavLink to={"/"}>
               <Button>
-                <Back />
+                <Back className={styles.back} />
                 <span>Вернуться назад</span>
               </Button>
             </NavLink>

@@ -33,14 +33,12 @@
     .light {
         /* Light mode */
         --header-bg: var(--header-bg-light);
-        --header-text: var(--header-text-light);
+        --text: var(--text-light);
         --header-logo-box-shadow: var(--header-logo-box-shadow-light);
-        --accent: var(--accent-light);
         --page-bg: var(--page-bg-light);
         --selector-active: var(--selector-active-light);
         --selector-bg: var(--selector-bg-light);
         --footer-bg: var(--footer-bg-light);
-        --footer-text: var(--footer-text-light);
     }
     // ------------------------------------------------------------------------------------------------------------------------------------------
 }

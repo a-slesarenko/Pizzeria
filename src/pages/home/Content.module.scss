@@ -2,7 +2,10 @@ main {
     padding: 25px 0;
     flex: 1 0 auto;
     background-color: var(--page-bg);
-    transition: background-color 2s ease;
+    color: var(--text);
+    transition:
+    background-color 2s ease,
+    color 1.3s ease;
 
     .content_top {
         align-items: center;

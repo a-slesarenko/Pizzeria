@@ -19,13 +19,13 @@ main {
 
             p {
                 font-size: 18px;
-                color: #777777;
+                color: var(--creamy-light);
             }
 
             img {
                 width: min(360px, 90%);
                 border-radius: 50%;
-                box-shadow: 0px 10px 15px 10px #868686;
+                box-shadow: 2px 2px 5px 3px #868686;
                 margin: 20px 0 35px 0;
                 @include noselect();
             }

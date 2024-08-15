@@ -10,7 +10,7 @@
         top: 50px;
         left: 0;
         margin-top: 15px;
-        background: #fe5f1e;
+        background: var(--brown-light);
         box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.452);
         border-radius: 30px;
         overflow: hidden;
@@ -65,13 +65,13 @@
                 }
 
                 &:hover {
-                    background-color: darken($orange, 4%);
+                    background-color: darken($brown-light, 4%);
                 }
 
                 &.active {
                     transform: translateY(2px);
                     border: unset;
-                    background-color: darken($orange, 10%);
+                    background-color: darken($brown-light, 5%);
                 }
             }
         }

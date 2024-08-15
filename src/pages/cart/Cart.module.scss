@@ -36,7 +36,7 @@ main {
                 }
 
                 path {
-                    stroke: var(--orange);
+                    stroke: var(--brown-light);
                     stroke-width: 1px;
                 }
             }
@@ -128,7 +128,7 @@ main {
                         justify-content: center;
                         background-color: var(--selector-active);
                         transition: background-color 2s ease;
-                        border: 2px solid $orange;
+                        border: 2px solid  var(--brown-light);
                         border-radius: 50%;
                         min-width: 32px;
                         height: 32px;
@@ -136,6 +136,9 @@ main {
                         transition:
                             background-color 0.15s ease-in-out,
                             border-color 0.15s ease-in-out;
+                        path{
+                            fill: var(--brown-light);
+                        }
 
                         .plus {
                             width: 10px;
@@ -148,7 +151,7 @@ main {
                         }
 
                         &:hover {
-                            background-color: $orange;
+                            background-color: var(--brown-light);
                             .plus {
                                 path {
                                     fill: #fff;
@@ -241,7 +244,7 @@ main {
                 }
 
                 b {
-                    color: $orange;
+                    color: var(--accent);
                 }
             }
 
@@ -250,6 +253,16 @@ main {
                 justify-content: space-between;
                 align-items: center;
                 margin-top: 40px;
+
+                .back{
+                    width: 20px;
+                    height: 20px;
+
+                    @media (max-width: 620px) {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
             }
         }
     }

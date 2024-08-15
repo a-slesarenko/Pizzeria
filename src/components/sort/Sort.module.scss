@@ -1,3 +1,5 @@
+@use "../../styles_utilities/scss-resourses.scss" as *;
+
 .sort {
     position: relative;
     z-index: 50;
@@ -10,22 +12,11 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        font-weight: 700;
 
         @media (max-width: 767px) {
             span {
                 display: none;
-            }
-        }
-
-        .arrow {
-            margin-right: 8px;
-            width: 10px;
-            height: 6px;
-
-            @media (min-width: 2500px) {
-                margin-right: 12px;
-                width: 20px;
-                height: 12px;
             }
         }
 
@@ -34,7 +25,7 @@
         }
 
         span {
-            color: #ff4800;
+            color: var(--accent);
             text-decoration: underline;
         }
     }
@@ -43,13 +34,14 @@
         position: absolute;
         right: 0;
         margin-top: 15px;
-        background-color: var(--selector-active);
+        background-color: var(--brown-light);
         transition: background-color 2s ease;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
-        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.226);
+        border-radius: 20px;
         overflow: hidden;
         padding: 10px 0;
         width: 160px;
+        color: var(--creamy-light);
 
         @media (min-width: 2500px) {
             width: 340px;
@@ -63,12 +55,12 @@
 
                 &.active,
                 &:hover {
-                    background: rgba(254, 95, 30, 0.05);
+                    background: darken($brown-light, 8%);
                 }
 
                 &.active {
                     font-weight: bold;
-                    color: var(--orange);
+                    color: var(--golden);
                 }
             }
         }
