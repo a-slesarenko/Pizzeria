@@ -12,7 +12,7 @@
         padding: 10px;
         box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
         border-radius: 35px;
-        background-color: var(--selector-active);
+        background-color: var(--otherBg);
         transition: background-color 2s ease;
 
         @media (min-width: 2500px) {
@@ -28,7 +28,7 @@
             flex: 0 0 75%;
 
             input {
-                background-color: var(--selector-active);
+                background-color: var(--otherBg);
                 transition: background-color 2s ease;
                 color: rgb(139, 138, 138);
                 width: 98%;
@@ -54,12 +54,12 @@
                 cursor: pointer;
 
                 &:hover {
-                    fill: $orange;
+                    fill: $brown-light;
                 }
 
                 &:active {
                     transform: translateY(3%);
-                    fill: darken($orange, 12%);
+                    fill: darken($brown-light, 12%);
                 }
 
                 @media (min-width: 2500px) {
@@ -83,13 +83,13 @@
 
                 &:hover {
                     path {
-                        fill: $orange;
+                        fill: $brown-light;
                     }
                 }
 
                 &:active {
                     transform: translateY(3%);
-                    fill: darken($orange, 12%);
+                    fill: darken($brown-light, 12%);
                 }
             }
         }

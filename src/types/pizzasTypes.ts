@@ -11,6 +11,7 @@ export interface Pizza {
   category?: number;
   rating?: number;
   calculatedPrice: number;
+  composition: string;
 }
 
 export interface CartPizza {

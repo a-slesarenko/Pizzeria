@@ -8,6 +8,7 @@ import { addPizza } from "@/redux/features/cart/cartSlice";
 import axios from "axios";
 import { thickness } from "@/helpers/ThisProjectLocalData";
 import calcPrice from "@/utils/calcPrice";
+import Button from "../button/Button";
 
 interface ChosenPizzaType {
   id: string;
@@ -27,6 +28,7 @@ const PizzaBlock = ({
   sizes,
   basePrice,
   calculatedPrice,
+  composition,
 }: Pizza) => {
   const [activeType, setActiveType] = useState(() => {
     const storedType: ChosenPizzaType = JSON.parse(
@@ -49,6 +51,7 @@ const PizzaBlock = ({
   });
 
   const [currentPrice, setCurrentPrice] = useState(calculatedPrice);
+  const [isOpen, setIsOpen] = useState(false);
 
   const setTypeInSession = (type: number) => {
     setActiveType(type);
@@ -95,48 +98,91 @@ const PizzaBlock = ({
   }, [currentPrice]);
 
   return (
-    <li className={styles.block__container}>
-      <div className={styles.pizza__block}>
-        <img className={styles.image} src={imageUrl} alt={title} />
-        <h4 className={styles.title}>{title}</h4>
-        <div className={styles.selector}>
-          <ul>
-            {types.map((type) => {
-              return (
-                <li
-                  key={type}
-                  className={activeType === type ? styles.active : ""}
-                  onClick={() => setTypeInSession(type)}
-                >
-                  {thickness[type]}
-                </li>
-              );
-            })}
-          </ul>
-          <ul>
-            {sizes.map((size) => {
-              return (
-                <li
-                  key={size}
-                  className={activeSize === size ? styles.active : ""}
-                  onClick={() => setSizeInSession(size)}
-                >
-                  {size} см
-                </li>
-              );
-            })}
-          </ul>
+    <>
+      <li className={styles.block__container}>
+        <div
+          className={styles.pizza__block}
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <img className={styles.image} src={imageUrl} alt={title} />
+          <div className={styles.middle}>
+            <h4 className={styles.title}>{title}</h4>
+            <div className={styles.composition}>
+              <p>{composition}</p>
+            </div>
+          </div>
+          <div className={styles.block__bottom}>
+            <div className={styles.price}>за {currentPrice} ₽</div>
+            <Button className="button_with_counter">
+              <Plus className={styles.plus} />
+              <span>Добавить</span>
+              {currentPizza ? <i>{currentPizza}</i> : ""}
+            </Button>
+          </div>
         </div>
-        <div className={styles.block__bottom}>
-          <div className={styles.price}>от {currentPrice} ₽</div>
-          <button className={styles.button} onClick={addPizzaOnClick}>
-            <Plus className={styles.plus} />
-            <span>Добавить</span>
-            {currentPizza ? <i>{currentPizza}</i> : ""}
-          </button>
+      </li>
+      {isOpen && (
+        <div
+          className={styles.wrapper}
+          onClick={(event) => {
+            event.currentTarget === event.target && setIsOpen(false);
+          }}
+        >
+          <div className={styles.window}>
+            <div className={styles.flex_wrapper}>
+              <div className={styles.left}>
+                <img src={imageUrl} alt={title} />
+              </div>
+              <div className={styles.right}>
+                <h4 className={styles.title}>{title}</h4>
+                <div className={styles.composition}>
+                  <p>{composition}</p>
+                </div>
+                <div className={styles.selector}>
+                  <ul>
+                    {types.map((type) => {
+                      return (
+                        <li
+                          key={type}
+                          className={activeType === type ? styles.active : ""}
+                          onClick={() => setTypeInSession(type)}
+                        >
+                          {thickness[type]}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <ul>
+                    {sizes.map((size) => {
+                      return (
+                        <li
+                          key={size}
+                          className={activeSize === size ? styles.active : ""}
+                          onClick={() => setSizeInSession(size)}
+                        >
+                          {size} см
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div className={styles.price}>
+                  В корзину за {currentPrice} ₽
+                </div>
+                <Button
+                  className="button_with_counter"
+                  onClick={addPizzaOnClick}
+                >
+                  <Plus className={styles.plus} />
+                  <span>Добавить</span>
+                  {currentPizza ? <i>{currentPizza}</i> : ""}
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </li>
+      )}
+    </>
   );
 };
 

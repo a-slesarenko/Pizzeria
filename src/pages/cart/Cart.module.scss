@@ -102,7 +102,6 @@ main {
 
                     p {
                         font-size: 18px;
-                        color: $grey;
                     }
                 }
 
@@ -126,7 +125,7 @@ main {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        background-color: var(--selector-active);
+                        background-color: var(--otherBg);
                         transition: background-color 2s ease;
                         border: 2px solid  var(--brown-light);
                         border-radius: 50%;
@@ -165,7 +164,7 @@ main {
                         }
 
                         &:active {
-                            background-color: darken($orange, 8%);
+                            background-color: darken($brown-light, 8%);
                             transform: translateY(1px);
                         }
                     }
@@ -189,7 +188,7 @@ main {
                     flex: 0 1 4%;
                     align-items: center;
                     justify-content: center;
-                    background-color: var(--selector-active);
+                    background-color: var(--otherBg);
                     border: 2px solid $grey;
                     border-radius: 50%;
                     min-width: 32px;
