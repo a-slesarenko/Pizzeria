@@ -13,7 +13,7 @@ const App = () => {
   const returnPizzas = useSelector(
     (state: RootState) => state.pizzas.returnToServer
   );
-  const [mode, setMode] = useLocalStorage("siteTheme", "dark");
+  const [mode, setMode] = useLocalStorage("siteTheme", "light");
 
   useEffect(() => {
     return () => {
@@ -26,7 +26,7 @@ const App = () => {
 
   const wrapperCombinedClass = clsx(
     styles.wrapper,
-    mode === "light" && "light"
+    mode === "dark" && "dark"
   );
 
   return (

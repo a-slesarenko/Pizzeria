@@ -5,13 +5,13 @@
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 400;
     font-style: normal;
-    --header-bg: var(--header-bg-dark);
-    --text: var(--text-dark);
-    --header-logo-box-shadow: var(--header-logo-box-shadow-dark);
-	--accent: var(--golden);
-    --page-bg: var(--page-bg-dark);
-    --selector-active: var(--selector-active-dark);
-    --selector-bg: var(--selector-bg-dark);
-    --footer-bg: var(--footer-bg-dark);
-    --otherBg: var(--otherBg-dark);
+        /* Light mode */
+        --header-bg: var(--header-bg-light);
+        --text: var(--text-light);
+        --header-logo-box-shadow: var(--header-logo-box-shadow-light);
+        --page-bg: var(--page-bg-light);
+        --selector-active: var(--selector-active-light);
+        --selector-bg: var(--selector-bg-light);
+        --footer-bg: var(--footer-bg-light);
+        --otherBg: var(--otherBg-light);
 }
