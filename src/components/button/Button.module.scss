@@ -77,6 +77,11 @@
         min-width: 200px;
     }
 
+    @media (max-width: 374px) {
+        padding: 10px 12px;
+        min-width: 80px;
+    }
+
     .wrapper {
         display: flex;
         align-items: center;
