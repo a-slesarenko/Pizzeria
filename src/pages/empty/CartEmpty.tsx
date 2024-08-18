@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import * as styles from "./CartEmpy.module.scss";
 import Button from "@/components/button/Button";
-import Back from "@/assets/images/svg/arrow-left-circle.svg";
+import Back from "@/assets/images/svg/arrow-left-short.svg";
 
 const CartEmpty = () => {
   return (
@@ -19,7 +19,7 @@ const CartEmpty = () => {
           </p>
           <NavLink to={"/"} className={styles.back_btn}>
             <Button>
-              <Back />
+              <Back className={styles.back}/>
               <span>Вернуться назад</span>
             </Button>
           </NavLink>

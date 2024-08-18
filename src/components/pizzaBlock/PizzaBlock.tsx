@@ -9,6 +9,8 @@ import axios from "axios";
 import { thickness } from "@/helpers/ThisProjectLocalData";
 import calcPrice from "@/utils/calcPrice";
 import Button from "../button/Button";
+import { useSwipeable } from "react-swipeable";
+import Left from "@/assets/images/svg/arrow-left-short.svg";
 
 interface ChosenPizzaType {
   id: string;
@@ -52,6 +54,11 @@ const PizzaBlock = ({
 
   const [currentPrice, setCurrentPrice] = useState(calculatedPrice);
   const [isOpen, setIsOpen] = useState(false);
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setIsOpen(false),
+    swipeDuration: 750,
+    delta: 100,
+  });
 
   const setTypeInSession = (type: number) => {
     setActiveType(type);
@@ -123,12 +130,19 @@ const PizzaBlock = ({
       </li>
       {isOpen && (
         <div
+          {...handlers}
           className={styles.wrapper}
           onClick={(event) => {
             event.currentTarget === event.target && setIsOpen(false);
           }}
         >
           <div className={styles.window}>
+            <button
+              className={styles.close_button}
+              onClick={() => setIsOpen(false)}
+            >
+              <Left className={styles.left} />
+            </button>
             <div className={styles.flex_wrapper}>
               <div className={styles.left}>
                 <img src={imageUrl} alt={title} />

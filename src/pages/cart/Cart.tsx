@@ -2,7 +2,7 @@ import * as styles from "./Cart.module.scss";
 import CartIcon from "@/assets/images/svg/bag.svg";
 import Trash from "@/assets/images/svg/trash.svg";
 import Remove from "@/assets/images/svg/remove.svg";
-import Back from "@/assets/images/svg/arrow-left-circle.svg";
+import Back from "@/assets/images/svg/arrow-left-short.svg";
 import SmallPlus from "@/assets/images/svg/plus.svg";
 import SmallMinus from "@/assets/images/svg/minus.svg";
 import Button from "@/components/button/Button";
