@@ -20,3 +20,8 @@
 "build-dev": сделать development сборку, сервер не запускать;
 "build-prod": сделать production сборку, сервер не запускать;
 "analyzer": сделать production сборку + запустить аналайзер production сборки;
+
+Credits
+Thanks to Treepng site for shrinks pizza image
+pizza PNG Designed By tree from https://pngtree.com/freepng/delicious-flat-of-a-shrimp-pizza-box_16256426.html?sol=downref&id=bef;
+Thanks to unsplash site for many pizza images, link https://unsplash.com/s/photos/pizza-with-shrimps

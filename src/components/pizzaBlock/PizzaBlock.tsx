@@ -104,6 +104,14 @@ const PizzaBlock = ({
     }
   }, [currentPrice]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("lockScroll");
+    } else {
+      document.body.classList.remove("lockScroll");
+    }
+  }, [isOpen]);
+
   return (
     <>
       <li className={styles.block__container}>
