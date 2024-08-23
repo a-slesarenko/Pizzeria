@@ -189,6 +189,10 @@ const PizzaBlock = ({
                       })}
                     </ul>
                   </div>
+                  <div className={styles.addToTaste}>
+                    <h3>Добавить по вкусу</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem distinctio adipisci hic molestias rerum quas voluptatem iste non necessitatibus aliquid doloribus itaque nostrum, nobis nesciunt expedita accusantium deserunt, amet eligendi deleniti. Maiores quam, corrupti rem ut voluptas assumenda dicta officia? Minus, molestiae natus reprehenderit rerum fuga ipsum, incidunt qui, suscipit pariatur aut quasi et. Laboriosam quas nostrum, rerum aperiam fuga perferendis aliquam, necessitatibus, quaerat dolore fugiat saepe. Officia veniam sunt voluptas vero ullam aspernatur ex tenetur obcaecati dolor dignissimos accusamus, velit quis mollitia molestiae cum qui explicabo quae voluptate incidunt error delectus porro neque laboriosam rerum. Incidunt quo quaerat, atque non aspernatur quam perferendis corporis temporibus, doloribus adipisci odio delectus cumque hic molestiae dolore odit qui quibusdam provident ad itaque? Possimus voluptatum repellat voluptatibus ea quos delectus quae dolore, fugit nesciunt rem vel, quas, odit ullam recusandae unde officia? Optio, rem voluptatum. Aliquid magnam ipsa ab quidem vitae at perferendis eveniet cumque sapiente, corrupti aspernatur possimus quisquam suscipit delectus obcaecati id eius a sequi explicabo. Amet nobis inventore exercitationem reprehenderit, vitae officia aliquid deserunt soluta ratione consectetur doloribus sit hic in assumenda accusamus ea tempore repellendus distinctio iste. Doloremque nam aspernatur ut, totam possimus quasi modi dolor eligendi fugiat?</p>
+                  </div>
                 </div>
                 <div className={styles.btn_wrapper}>
                   <div className={styles.price}>
