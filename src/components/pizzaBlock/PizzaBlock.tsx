@@ -156,49 +156,53 @@ const PizzaBlock = ({
                 <img src={imageUrl} alt={title} />
               </div>
               <div className={styles.right}>
-                <h4 className={styles.title}>{title}</h4>
-                <div className={styles.composition}>
-                  <p>{composition}</p>
+                <div className={styles.content_container}>
+                  <h4 className={styles.title}>{title}</h4>
+                  <div className={styles.composition}>
+                    <p>{composition}</p>
+                  </div>
+                  <div className={styles.selector}>
+                    <ul>
+                      {types.map((type) => {
+                        return (
+                          <li
+                            key={type}
+                            className={activeType === type ? styles.active : ""}
+                            onClick={() => setTypeInSession(type)}
+                          >
+                            {thickness[type]}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <ul>
+                      {sizes.map((size) => {
+                        return (
+                          <li
+                            key={size}
+                            className={activeSize === size ? styles.active : ""}
+                            onClick={() => setSizeInSession(size)}
+                          >
+                            {size} см
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </div>
-                <div className={styles.selector}>
-                  <ul>
-                    {types.map((type) => {
-                      return (
-                        <li
-                          key={type}
-                          className={activeType === type ? styles.active : ""}
-                          onClick={() => setTypeInSession(type)}
-                        >
-                          {thickness[type]}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <ul>
-                    {sizes.map((size) => {
-                      return (
-                        <li
-                          key={size}
-                          className={activeSize === size ? styles.active : ""}
-                          onClick={() => setSizeInSession(size)}
-                        >
-                          {size} см
-                        </li>
-                      );
-                    })}
-                  </ul>
+                <div className={styles.btn_wrapper}>
+                  <div className={styles.price}>
+                    В корзину за {currentPrice} ₽
+                  </div>
+                  <Button
+                    className="button_with_counter"
+                    onClick={addPizzaOnClick}
+                  >
+                    <Plus className={styles.plus} />
+                    <span>Добавить</span>
+                    {currentPizza ? <i>{currentPizza}</i> : ""}
+                  </Button>
                 </div>
-                <div className={styles.price}>
-                  В корзину за {currentPrice} ₽
-                </div>
-                <Button
-                  className="button_with_counter"
-                  onClick={addPizzaOnClick}
-                >
-                  <Plus className={styles.plus} />
-                  <span>Добавить</span>
-                  {currentPizza ? <i>{currentPizza}</i> : ""}
-                </Button>
               </div>
             </div>
           </div>
